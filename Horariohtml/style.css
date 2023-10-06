@@ -61,10 +61,46 @@ table, th, td {
 
     
 .ISO {
-  color:rgb(36, 156, 12);
-  border-bottom: 6px solid rgb(15, 12, 165);
+  color:rgb(38, 38, 43);
+  border-bottom: 6px solid rgb(119, 7, 122);
   height: 40px;
   width: 600px;
   text-align: center;
   font-family:'Courier New', Courier, monospace
+}
+
+.FunH {
+    color:rgb(38, 38, 43);
+    border-bottom: 6px solid rgb(0, 0, 0);
+    height: 40px;
+    width: 600px;
+    text-align: center;
+    font-family:'Courier New', Courier, monospace
+}
+
+.BD {
+    color:rgb(38, 38, 43);
+    border-bottom: 6px solid rgb(3, 116, 50);
+    height: 40px;
+    width: 600px;
+    text-align: center;
+    font-family:'Courier New', Courier, monospace
+}
+
+.FOL {
+    color:rgb(38, 38, 43);
+    border-bottom: 6px solid rgb(218, 53, 12);
+    height: 40px;
+    width: 600px;
+    text-align: center;
+    font-family:'Courier New', Courier, monospace
+}
+
+.RAL {
+    color:rgb(38, 38, 43);
+    border-bottom: 6px solid rgb(7, 130, 161);
+    height: 40px;
+    width: 600px;
+    text-align: center;
+    font-family:'Courier New', Courier, monospace
 }
