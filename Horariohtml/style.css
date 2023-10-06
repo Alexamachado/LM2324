@@ -1,0 +1,70 @@
+.contenedor {
+
+    display: flex;
+
+}
+
+.imagen {
+    width: 450px;
+    height: 350px;
+}
+
+
+.lunes {
+  background-color:yellow ;
+}
+
+table, th, td {
+    border:1px solid black;
+    text-align: center; 
+  }
+
+
+
+  .lunes {
+    background-color:yellow ;
+  }
+    
+  .martes {
+    background-color:red ;
+  }
+
+  .miercoles {
+    background-color:white ;
+  }
+
+  .jueves {
+    background-color:green ;
+  }
+
+  .viernes {
+    background-color:orange ;
+  }
+
+  .titulof {
+    color:rgb(36, 156, 12);
+    border-bottom: 6px solid rgb(15, 12, 165);
+    height: 40px;
+    width: 450px;
+    text-align: center;
+    font-family:'Courier New', Courier, monospace
+  }
+
+  .titulod {
+    color:rgb(207, 18, 18);
+    border-bottom: 6px solid rgb(10, 179, 164);
+    height: 40px;
+    width: 450px;
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  }
+
+    
+.ISO {
+  color:rgb(36, 156, 12);
+  border-bottom: 6px solid rgb(15, 12, 165);
+  height: 40px;
+  width: 600px;
+  text-align: center;
+  font-family:'Courier New', Courier, monospace
+}
