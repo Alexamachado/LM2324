@@ -10,6 +10,52 @@
 <h2>Formulario 3</h2>
 
 <form action="/action_page.php">
+<legend> Preferencias </legend>
 
+    <select name="velocidad" multiple id="">
+        <option value="100_mbits">100 Mbits</option>
+        <option value="1000_Mbits">1000 Mbits</option>
+    </select> <br>
+
+    <label for="">DNI: </label> 
+    <input type="text" name="dni"> <br>
+    <label for="">Nombre:</label>
+    <input type="text" name="nombre"> <br>
+    <label for="">Apellidos:</label>
+    <input type="text" name="apellidos"> <br>
+    <label for="">Email:</label>
+    <input type="text" name="email"> <br>
+
+    <label for="">Elija un color</label>
+    <input type="color" name="color" id=""> <br>
+
+    <textarea maxlength="50" name="descripcion" id="" cols="49" rows="6" placeholder="Por favor, escriba aquí"></textarea> <br>
+
+    <input type="checkbox" name="procesador" value="procesadoramd"> AMD <br>
+    <input type="checkbox" name="procesador" value="procesadorintel_i5"> Intel i5 <br>
+    <input type="checkbox" name="procesador" value="procesadorintel_i7"> Intel i7<br>
+
+    <label for="">Elija una hora:</label>
+    <input type="time" name="hora" id=""> <br>
+
+    <input type="radio" name="red" value="red2g"> 2G <br>
+    <input type="radio" name="red" value="red3g"> 3G <br>
+    <input type="radio" name="red" value="red4g"> 4G<br>
+
+    <label for="">Elige un fichero</label>
+     <input type="file" name="" id=""><br>
+
+     <input type="checkbox" name="asignatura" value="asignaturahistoria"> Historia <br>
+     <input type="checkbox" name="asignatura" value="asignaturageografia"> Geografía <br>
+     <input type="checkbox" name="asignatura" value="asignaturalengua"> Lengua <br>
+     <input type="checkbox" name="asignatura" value="asignaturamatematicas"> Matemáticas <br>
+
+     <label for="">Elija una hora:</label>
+    <input type="time" name="hora" id=""> <br>
+
+    <label for="">Elija un fichero</label>
+    <input type="file" name="" id=""> <br>
+
+    <textarea rows="8" cols="49" placeholder="Inserte aqui el texto"></textarea>
 </body>
 </html>
