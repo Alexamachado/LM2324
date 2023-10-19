@@ -10,15 +10,60 @@
 <h2>HTML Forms</h2>
 
 <form action="/action_page.php">
-  <label for="fname">Nombre</label><br>
-  <input type="text" id="fname" name="Nombre"
-  placeholder="Nombre"><br>
-  <label for="lname">Apellido</label><br>
-  <input type="text" id="lname" name="Apellido" placeholder="Apellido"><br><br>
-  <input type="submit" value="Enviar">
-</form> 
+  <fieldset>
+    <legend>Complete, por favor</legend>
+    <label for="">Elija una hora:</label>
+    <input type="time" name="hora" id=""> <br>
 
-<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p> 
+    <label for="">Describete a ti mismo:</label> <br>
+    <textarea maxlength="50" name="descripcion" id="" cols="45" rows="6" placeholder="Utilice este cuadro para escribir"></textarea> <br>
 
+    <label  for=""></label> <br>
+    <input type="radio" name="lenguaje" value="lenguajejava"> Java <br>
+    <input type="radio" name="lenguaje" value="lenguajepython">Python<br>
+    <input type="radio" name="lenguaje" value="lenguajehtml">HTML<br>
+    <input type="radio" name="lenguaje" value="lenguajevisual_basic">Visual Basic<br> <br>
+
+    <label for="">Elige un fichero</label>
+    <input type="file" name="" id=""><br>
+    <label for="">Elija una fecha</label> 
+    <input type="date" name="nacimiento" id=""> <br>
+    <label for="">Elija un color</label>
+    <input type="color" name="color" id=""> <br>
+    </fieldset>
+
+    <fieldset>
+     <legend>Rellene las opciones siguientes</legend> 
+
+     <label for=""></label> 
+     <input type="checkbox" name="procesador" value="procesadorintel">Intel <br>
+     <input type="checkbox" name="procesador" value="procesadoramd">AMD <br>
+
+     <label for="">Elija una hora:</label>
+     <input type="time" name="hora" id=""> <br>
+  
+     <label for="">Elige un fichero</label>
+     <input type="file" name="" id=""><br>
+
+     <label  for=""></label> <br>
+     <input type="radio" name="procesador" value="procesadoramd"> AMD 
+     <input type="radio" name="procesador" value="procesadorinteli5">Intel i5
+     <input type="radio" name="procesador" value="procesadorinteli7">Intel i7 <br>
+    
+     <label for="">Describete a ti mismo:</label> <br>
+    <textarea maxlength="50" name="descripcion" id="" cols="55" rows="4" placeholder="Utilice este recuadro por favor"></textarea> <br>
+
+    <label for="">DNI: </label> 
+    <input type="text" name="dni"> <br>
+    <label for="">Nombre:</label>
+    <input type="text" name="nombre"> <br>
+    <label for="">Apellidos:</label>
+    <input type="text" name="apellidos"> <br>
+    <label for="">Telefono:</label>
+    <input type="text" name="telefono"> <br>
+
+    <label for="">Elija un color</label>
+    <input type="color" name="color" id=""> <br>
+    </fieldset>
 </body>
 </html>
