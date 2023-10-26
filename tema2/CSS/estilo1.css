@@ -1,0 +1,15 @@
+p{
+    color: red;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h1{
+    color: blue;
+    font-size: 500%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body{
+    background-color: gray;
+}
