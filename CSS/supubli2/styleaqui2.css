@@ -1,0 +1,80 @@
+#publi{ 
+   background-image:url("images/banner.png");
+   width: 1280px;
+   height: 100px;
+  top: 0px;
+   left: 0px;
+  position: fixed;
+} 
+
+#center1{ 
+   position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+ }   
+
+ #center2{ 
+   position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+ }   
+
+ #center3{ 
+   position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+ }   
+
+ #center4{ 
+   position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+ }   
+
+#right{ 
+   position: relative;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+ }   
+
+
+ #left1{ 
+   position: relative;
+  top: 200px;
+  left: 16px;
+  font-size: 18px;
+ }   
+
+ #left2{ 
+   position: relative;
+  top: 225px;
+  left: 16px;
+  font-size: 18px;
+ }   
+
+ #left3{ 
+   position: relative;
+  top: 250px;
+  left: 16px;
+  font-size: 18px;
+ }   
+
+ #left4{ 
+   position: relative;
+  top: 275px;
+  left: 16px;
+  font-size: 18px;
+ }   
+ #center1 {
+   position: absolute;
+   top: 50%;
+   width: 100%;
+   text-align: center;
+   font-size: 18px;
+ }
+
