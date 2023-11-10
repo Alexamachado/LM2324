@@ -1,18 +1,25 @@
 #publi{ 
    background-image:url("images/banner.png");
-   width: 1280px;
+   width: 100%;
    height: 100px;
   top: 0px;
    left: 0px;
   position: fixed;
+  z-index: 1;
 } 
+
 
 #center1{ 
    position: absolute;
-  top: 8px;
-  right: 16px;
+  top: 120px;
+  left: 180px;
   font-size: 18px;
+  text-align: center;
  }   
+
+ img{
+  float: left;
+ }
 
  #center2{ 
    position: absolute;
@@ -35,6 +42,7 @@
   font-size: 18px;
  }   
 
+
 #right{ 
    position: relative;
   top: 8px;
@@ -42,12 +50,22 @@
   font-size: 18px;
  }   
 
+ #publiright{ 
+  background-image:url("images/mid.jpg");
+  width: 200px;
+  height: 100%;
+  position: absolute;
+  top: 100px;
+  right: 0px;
+  z-index: 2;
+} 
 
  #left1{ 
    position: relative;
   top: 200px;
   left: 16px;
   font-size: 18px;
+  z-index: 3;
  }   
 
  #left2{ 
@@ -55,6 +73,7 @@
   top: 225px;
   left: 16px;
   font-size: 18px;
+  z-index: 3;
  }   
 
  #left3{ 
@@ -62,6 +81,7 @@
   top: 250px;
   left: 16px;
   font-size: 18px;
+  z-index: 3;
  }   
 
  #left4{ 
@@ -69,12 +89,17 @@
   top: 275px;
   left: 16px;
   font-size: 18px;
+  z-index: 3;
  }   
- #center1 {
-   position: absolute;
-   top: 50%;
-   width: 100%;
-   text-align: center;
-   font-size: 18px;
- }
+
+ #leftbackground{ 
+  background-color: white;
+  width: 200px;
+  height: 100%;
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  z-index: 2;
+}   
+
 
