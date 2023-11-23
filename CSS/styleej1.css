@@ -1,0 +1,95 @@
+body{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
+    background-image: url(bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-x:center;
+
+}
+
+p::first ::first-letter{
+    font-size: 200%;
+    font-weight: bold;
+    color: brown;
+}
+
+header{
+    background-color: brown;
+    color: black;
+    text-align: center;
+    border-radius: 20px;
+    border-bottom: 1px solid;
+    padding: 1rem;
+}
+
+aside{
+    background-color: #b2b2b2;
+    color: black;
+    border-radius: 20px;
+
+}
+
+nav{
+    display: flex;
+    background-color: #ebcd7c;
+    border-radius: 20px;
+    padding: 5px 0px;
+}
+
+nav a{ /*estilo para el enlace del menu*/
+    flex: auto;
+    text-align: center;
+    background-color: forestgreen;
+    color: bisque;
+    margin: 0 5px;
+    border-radius: 20px;
+    text-decoration: none;   
+    padding: 5px 0px; 
+}
+
+nav a:hover{
+    outline: 1px solid;
+    color: white;
+    text-decoration: none;
+
+}
+
+a{
+
+    color: grey;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/*A partir de aqui vamos a cambiar la disposicion 
+de los elementos cuando el tamaño de la pantalla sea superior a 480px */
+
+@media  and (min-width:480px) {
+    body{
+        display:flex;
+        flex-direction: column;
+        max: width 75rem;margin: auto;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 0.5rem solid;
+
+}
+
+nav, header{
+    order: -1;
+}
+
+article {
+    flex: 75%;
+}
+
+aside {
+    flex: 25%
+}
+}
+
+    
+}
