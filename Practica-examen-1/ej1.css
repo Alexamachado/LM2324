@@ -1,0 +1,76 @@
+body{
+    font-family: "Open Sans", "Helvetica", "sans-serif";
+    text-align: center;
+    display: flex;
+}
+
+
+.container{
+    display: flex;
+    background-color: #970043;
+    
+    padding: 20px;
+    width: 80%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.main{
+    display: flex;
+    
+    padding: 20px;
+    width: 80%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    flex-direction: row;
+}
+
+.Cabecera{ 
+
+    flex-direction: column;
+    
+    background-color: #ffd100;
+    text-align: center;
+    line-height: 150px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+}
+
+.Caja2{ 
+    flex-direction: row;
+    background-color: #970043;
+    text-align: center;
+    line-height: 150px;
+        
+}
+
+.Caja3{ 
+    flex-direction: row;
+    background-color: #f2f2f2;
+    text-align: center;
+    border-radius: 10px;
+    overflow: auto;
+    
+}
+
+.Caja4{ 
+    flex-direction: row;
+    background-color: #970043;
+    text-align: center;
+    line-height: 150px;
+}
+
+.footer{
+    flex-direction: column;
+    background-color: #ffd100;
+}
+
+p::first-letter {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
