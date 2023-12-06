@@ -1,0 +1,45 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: start;
+    color: rgb(52, 49, 49);
+    padding: 1rem;
+}
+
+
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 1170px;
+    margin: auto;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.Caja1{ 
+ 
+    background-color: #073d13;
+    padding: 20px;  
+    color: white;  
+}
+
+.button {
+    background-color: #073d13;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 15px 47%;
+  }
+
+
+.Caja2{ 
+    background-color: #f2f2f2;
+
+    border-radius: 10px;
+}
+
+.Caja3{ 
+    background-color: #f2f2f2;
+  
+    border-radius: 10px;
+}

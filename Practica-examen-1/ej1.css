@@ -18,7 +18,6 @@ body{
 
 .main{
     display: flex;
-    
     padding: 20px;
     width: 80%;
     margin: 0 auto;
@@ -29,21 +28,19 @@ body{
 .Cabecera{ 
 
     flex-direction: column;
-    
     background-color: #ffd100;
     text-align: center;
     line-height: 150px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
-
+    
 }
 
 .Caja2{ 
     flex-direction: row;
-    background-color: #970043;
-    text-align: center;
-    line-height: 150px;
-        
+    background-color: #970043;  
+    width: 100%;
+    margin-top: 30%;
 }
 
 .Caja3{ 
@@ -58,8 +55,8 @@ body{
 .Caja4{ 
     flex-direction: row;
     background-color: #970043;
-    text-align: center;
-    line-height: 150px;
+    width: 100%;
+    margin-top: 30%; 
 }
 
 .footer{
@@ -74,3 +71,4 @@ p::first-letter {
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+

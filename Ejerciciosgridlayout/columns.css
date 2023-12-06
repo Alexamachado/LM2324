@@ -9,7 +9,7 @@ body{
     display: grid;
     grid-template-columns: auto auto auto;
     background-color: lightgreen;
-    border: solid,black, 1px;
+    border: solid black 1px;
     padding: 20px;
     width: 80%;
     margin: 0 auto;
@@ -31,14 +31,13 @@ body{
     text-align: center;
     line-height: 150px;
     grid-column: 1 / span 2;
-        }
+}
 
 .Caja3{ 
     border: 4px solid rgba(0, 0, 0, 0.8);
     background-color: lightsalmon;
     text-align: center;
-    line-height: 150px;
-        
+    line-height: 150px;        
 }
 
 .Caja4{ 
