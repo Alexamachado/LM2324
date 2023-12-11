@@ -13,6 +13,7 @@ body{
                          'menu menu'
                          'content banners'
                          'footer footer';
+                         justify-content: stretch;
     grid-template-rows: 10% 20% auto 10%;
     grid-template-columns: auto auto;
     background-color: lightgray;

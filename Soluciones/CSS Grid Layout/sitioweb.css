@@ -1,0 +1,46 @@
+body {
+    background-color: lightgoldenrodyellow;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align:center;
+}
+.caja{
+    border: 4px solid black;
+    background-color: lightgray;
+    text-align:center;
+ }
+.grid-layout{
+    display: grid;
+    grid-template-areas: 'cabecera cabecera' 'menu menu' 'contenido banners' 'pie pie'; /* Ancho de las columnas */
+    grid-template-rows: 10% 20% auto 10%; /* Altura de las filas */
+    justify-content: stretch;
+    width: 80%;
+    height: 84vh;
+    margin: 0 auto;
+    background-color: lightgray;
+    border: 2px dashed black;
+    padding: 20px;
+}
+.cabecera {
+    grid-area: cabecera;
+    background-color: lightblue;
+    line-height: 8vh;
+}
+.menu{
+    grid-area: menu;
+    background-color: lightyellow;
+    line-height: 15vh;
+}
+.contenido{
+    grid-area: contenido;
+    background-color: lightsalmon;
+    line-height: 50vh;
+}
+.banners{
+    grid-area: banners;
+    background-color:lightseagreen;
+    line-height: 50vh;
+}
+.pie{
+    grid-area: pie;
+    line-height: 8vh;
+}
