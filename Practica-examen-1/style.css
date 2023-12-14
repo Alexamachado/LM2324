@@ -5,8 +5,6 @@
 
 .body{
 height: 100vh;
-margin: 0;
-padding: 0;
 background-color: white;
 font-family: Arial, Helvetica, sans-serif;
 font-size: 1.1em;
@@ -16,7 +14,7 @@ font-size: 1.1em;
     text-align: center;
     background-color: darkgrey;
     padding: 20px;
-    margin: 20px;
+    margin: 20;
     border: 2px solid;
     border-color: whitesmoke;
     border-radius: 10px;
@@ -29,27 +27,27 @@ font-size: 1.1em;
 
 .wrapper{
 display: flex;
+flex-wrap: wrap;
 }
 
 .nav{
     background-color: darkcyan;
-    text-decoration: none;
     color: white;
     width: auto;
     padding: 20px;
-    margin: 20px;
+    margin: 20;
     border: 2px solid;
     border-color: whitesmoke;
     border-radius: 10px;
+    flex: 25%;
 }
 
 .navwords {
     cursor: progress;
     border-bottom: solid rgba(255, 255, 255, 0.3);
     color: white;  
-    text-decoration: none;
     padding: 0.5em 1em;
-
+    text-decoration: none;
 }
 
 img {
@@ -67,7 +65,7 @@ img {
  background-color: darkolivegreen;   
  border: none;
  padding: 20px;
- margin: 20px;
+ margin: 20;
  border: 2px solid;
  border-color: whitesmoke;
  border-radius: 10px;
@@ -76,14 +74,14 @@ img {
 
 P::first-letter{
    color: darkgray;
-   font-size: ; 
+   font-weight: bold;
 }
 
 .footer{
 text-align: center;
 background-color: darkgoldenrod;
 padding: 20px;
-margin: 20px;
+margin: 20;
 border: 2px solid;
 border-color: whitesmoke;
 border-radius: 10px;
@@ -94,5 +92,9 @@ color: white;
 @media (min-width:640px) {
     .nav {
       width:15em
+    }   
+
+    .wrapper {
+      flex-wrap: nowrap;
     }
   }
