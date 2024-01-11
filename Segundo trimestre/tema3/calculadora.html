@@ -13,8 +13,8 @@
     <input type="text" id="b">
     <button onclick="suma()">Suma</button>
     <button onclick="resta()">Resta</button>
-    <button onclick="multi()">multi</button>
-    <button onclick="dividir()">dividir</button>
+    <button onclick="multi()">Multi</button>
+    <button onclick="dividir()">Dividir</button>
     <p id="resultado"></p>
     <script>
         function suma(){
@@ -35,6 +35,12 @@
         function dividir(){
             var a = parseInt(document.getElementById("a").value);
             var b = parseInt(document.getElementById("b").value);
+            if (b==0)
+            // Si solo hay una instruccion, no hace falta llave
+            // Bloque de instrucciones si verdadero
+                alert ("Imposible dividir por cero");
+            else 
+            // Bloque de instrucciones si falso
             document.getElementById("resultado").innerHTML = a/b;
         }
     </script>
