@@ -30,8 +30,16 @@
        
 
 <script> 
-var colores = [" rojo",  " verde", " azul", " naranja", " purpura", " marron", " gris", " negro", " rosa", " amarillo "];
-document.getElementById("colors").innerHTML = colores;
+var colores = ["rojo",  "verde", "azul", "naranja", "purpura", "marron", "gris", "negro", "rosa", "amarillo"];
+function pintarArray(){
+    document.getElementById("colors").innerHTML = "";
+    for (var i=0;i<colores.length;i++)
+    if (i==0)
+        document.getElementById("colors").innerHTML += colores[i];
+    else
+        document.getElementById("colors").innerHTML += ", " + colores[i];
+}
+pintarArray();
 
 function eliminar() {
     colores.pop();
@@ -41,7 +49,8 @@ function eliminar() {
 
 function añadir() {
     añadirelement = document.getElementById("elementoañadir").value;
-    document.getElementById("colors").innerHTML = colores + colores.push(añadirelement);
+    colores.push(añadirelement);
+    pintarArray();
 }
 
 function creciente() {
