@@ -15,6 +15,7 @@
 <button onclick="eliminar()">Eliminar</button>
 
 <p> Escriba el elemento a añadir, y pulse el boton para añadir el elemento </p>
+<input type="text" id="elementoañadir">
 <button onclick="añadir()">Añadir</button>
 
 <p> Pulsa para ordenar de manera creciente </p>
@@ -25,13 +26,11 @@
 
 <p> Escriba el elemento a buscar y pulse el boton</p>
 <input type="text" id="elementobuscar">
-    <button onclick="busqueda()">
-        Buscar elemento
-        </button>
+    <button onclick="busqueda()"> Buscar elemento </button>
        
 
 <script> 
-var colores = [" rojo",  " verde", " azul", " naranja", " purpura", " marron", " gris", " negro", " rosa", " amarillo"];
+var colores = [" rojo",  " verde", " azul", " naranja", " purpura", " marron", " gris", " negro", " rosa", " amarillo "];
 document.getElementById("colors").innerHTML = colores;
 
 function eliminar() {
@@ -41,8 +40,8 @@ function eliminar() {
 
 
 function añadir() {
-    colores.push();
-    document.getElementById("colors").innerHTML = colores;
+    añadirelement = document.getElementById("elementoañadir").value;
+    document.getElementById("colors").innerHTML = colores + colores.push(añadirelement);
 }
 
 function creciente() {
@@ -60,7 +59,7 @@ function busqueda() {
 
     var colores2 = ['rojo', 'verde', 'azul', 'naranja', 'purpura', 'marron', 'gris', 'negro', 'rosa', 'amarillo'];
     ncolor = document.getElementById("elementobuscar").value;
-    document.getElementById("lugar").innerHTML = "El " + ncolor + " se encuentra en la posicion " + colores2.indexOf("elementobuscar");
+    document.getElementById("lugar").innerHTML = "El " + ncolor + " se encuentra en la posicion " + colores2.indexOf(ncolor);
 }
 
 </script>
