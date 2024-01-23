@@ -15,8 +15,8 @@
 <button onclick="eliminar()">Eliminar</button>
 
 <p> Escriba el elemento a añadir, y pulse el boton para añadir el elemento </p>
-<input type="text" id="elementoañadir">
-<button onclick="añadir()">Añadir</button>
+<input type="text" id="elementoanadir">
+<button onclick="anadir()">Añadir</button>
 
 <p> Pulsa para ordenar de manera creciente </p>
 <button onclick="creciente()">Creciente</button>
@@ -47,9 +47,9 @@ function eliminar() {
 }
 
 
-function añadir() {
-    añadirelement = document.getElementById("elementoañadir").value;
-    colores.push(añadirelement);
+function anadir() {
+    anadirelement = document.getElementById("elementoanadir").value;
+    colores.push(anadirelement);
     pintarArray();
 }
 
