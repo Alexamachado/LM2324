@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,7 +35,7 @@ function pintarArray(){
     document.getElementById("colors").innerHTML = "";
     for (var i=0;i<colores.length;i++)
     if (i==0)
-        document.getElementById("colors").innerHTML += colores[i];
+        document.getElementById("colors").innerHTML = colores[i];
     else
         document.getElementById("colors").innerHTML += ", " + colores[i];
 }
@@ -66,7 +66,11 @@ function decreciente() {
 
 function busqueda() {
 
-    ncolor = document.getElementById("elementobuscar").value;
+    var ncolor = document.getElementById("elementobuscar").value;
+    var posicion = colores.indexOf(ncolor);
+    if (posicion==-1)
+    document.getElementById("lugar").innerHTML = "No encontrado";
+    else
     document.getElementById("lugar").innerHTML = "El " + ncolor + " se encuentra en la posicion " + colores.indexOf(ncolor);
 }
 
