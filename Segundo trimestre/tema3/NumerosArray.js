@@ -1,9 +1,9 @@
 var numeros = [];
 
-function add() {
-    var n = parseFloat(document.getElementById("numeros").value);
-    numbers.push(numeros);
-    document.getElementById("resultado").innerHTML = numbers
+function anadir() {
+    var n = parseFloat(document.getElementById("n").value);
+    numeros.push(n);
+    document.getElementById("resultado").innerHTML = numeros
 }
 
 var s=0
@@ -11,16 +11,16 @@ var s=0
 
 function sumar(){
     s = 0;
-    for (var i = 0 ; i< Numbers.length; i++) {
-        s += numbers[i];
+    for (var i = 0 ; i< numeros.length; i++) {
+        s += numeros[i];
     }
     document.getElementById("resultado").innerHTML = s;
 }
 
-function Multiplicar(){
+function multiplicar(){
     var m = 1;
-    for (var i = 0 ; i< numbers.length; i++) {
-        m*= numbers[i];
+    for (var i = 0 ; i < numeros.length; i++) {
+        m*= numeros[i];
     }
     document.getElementById("resultado").innerHTML = m;
 }
