@@ -9,7 +9,7 @@ var numerospares = [];
 function sumar(){
     var par = 0;
     for (i = 0 ; i<numerospares.length; i++) {
-        if ( i % 2 == 0) {
+        if ( numerospares[i] % 2 == 0) {
         par += numerospares[i];
     }
 }
