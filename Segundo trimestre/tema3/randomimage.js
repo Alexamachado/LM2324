@@ -1,15 +1,19 @@
-/*
-imagen = new Array();
+
         
-                imagen[0] = ['images/1.png'],
-                imagen[1] = ['images/2.png'],
-                imagen[2] = ['images/3.png'],
-                imagen[3] = ['images/4.png'],
-                imagen[4] = ['images/5.png'],
-                imagen[5] = ['images/6.png'],
-                imagen[6] = ['images/7.png'];
-*/       
-        
+let archivos=["1.png","2.png","3.png","4.png","5.png","6.png","7.png",]
+function random(min,max) {
+    return Math.floor((Math.random() * (max - min + 1)) + min)
+}
+function seleccionaimagen(){
+let numero = random(0,archivos.length - 1);
+document.getElementById("photos").src = "images/" + archivos[numero];
+
+}
+
+
+
+
+
                 function getRandomArbitrary(min, max){
                     return Math.random() * (max - min) + min;
                 }
