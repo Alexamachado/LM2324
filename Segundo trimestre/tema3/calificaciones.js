@@ -82,12 +82,7 @@ function tri3(){
         notas3.push(n3);
         document.getElementById("campo3").innerHTML = notas3;
         }
-
-}
-
-function borrarnotas(){
-document.getElementById
-}
+    }
 
 function media(){
     let total = 0.0;
@@ -106,3 +101,11 @@ function media(){
     total = total + suma1 + suma2 + suma3;
     document.getElementById("resultadomedia").innerHTML = "La media del alumno " + alumno + " es " + total;
 }
+
+function borrarnotas(){
+    let nada = "";
+    document.getElementById("notas1").innerHTML = nada;
+    document.getElementById("notas2").innerHTML = nada;
+    document.getElementById("notas3").innerHTML = nada;
+    document.getElementById("borrado").innerHTML = "Se han borrado todas las notas correctamente"
+    }
