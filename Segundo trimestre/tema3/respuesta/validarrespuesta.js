@@ -19,7 +19,7 @@ function validar(elementos){
     estanCorrectos = false;
     }
     if (!validarDNI()){ //valido contraseñas
-        document.getElementById("campo6").innerHTML = "DNI no valido (12345678X)";        
+        document.getElementById("campo6").innerHTML = "DNI no valido +(12345678X)";        
         estanCorrectos = false;
         }
     return estanCorrectos;
@@ -53,7 +53,9 @@ return passwordsOK;
 
 function validarDNI(){
     let letra =['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'];
-    var cadena = document.getElementById("dni").value; //DNI completo    
+    var cadena = document.getElementById("dni").value; //DNI completo 
+    let cadenaSinEspacios = cadena.replace(" ", "");   
+    let cadenaLimpia = cadenaSinEspacios.toUpperCase();
     var numero = parseInt(cadena.substring(0,8)); //Parte numerica
     var letraUsuario = cadena [8]; //Letra escrita por el usuario
     var letraReal = letra[numero%23]; // Letra "real" del DNI calculada segun formula
@@ -63,7 +65,9 @@ function validarDNI(){
     return dniValido;
 }
 
-
+/*
+ Ejercicio conviertan a mayúsculas una cadena y eliminen sus posibles espacios.
+*/
 
 // && para que se cumplan dos condiciones
 // or se debe cumplir una de dos cosas sea verdadera 
