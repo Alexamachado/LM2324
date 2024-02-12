@@ -10,10 +10,6 @@ document.getElementById("photos").src = "images/" + archivos[numero];
 
 }
 
-
-
-
-
                 function getRandomArbitrary(min, max){
                     return Math.random() * (max - min) + min;
                 }

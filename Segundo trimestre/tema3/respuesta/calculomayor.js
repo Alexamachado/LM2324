@@ -7,7 +7,6 @@ function mayor(vector){
         if (vector[i]>mayor)
         mayor = vector[i];
     } 
-   
     return mayor;
 }
     function menor(vector){
