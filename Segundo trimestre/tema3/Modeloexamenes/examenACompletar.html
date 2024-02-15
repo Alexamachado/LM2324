@@ -17,11 +17,11 @@
           <option value="Helvetica">Helvetica</option>
           <option value="Monospace">Monospace</option>
           </select> </td>
-      <td><input id="color" type="color" onchange="**************"></td>
+      <td><input id="color" type="color" onchange="cambiarColor"></td>
     </tr>
   </table>
   <script type="text/javascript">
-      var tamano==0 // TamaNo inicial
+      var tamano=0 // TamaNo inicial
       function aumenta(){
         tamano+=25;
         document.getElementById("parrafo").style.fontSize = tamano+"%"; // aumentamos un 25% el tamaño
@@ -31,10 +31,10 @@
         document.getElementById("parrafo").style.fontSize = tamano+"%"; //decrementamos un 25% el tamaño
       }
       function cambiarColor(){
-        ************* = document.getElementById("color").value; //Cambiamos el color del parrafo
+        color = document.getElementById("color").value; //Cambiamos el color del parrafo
       }
       function cambiarFuente(font) {
-        document.getElementById("parrafo") = font.value; // Cambiamos la fuente del parrafo
+        document.getElementById("input-font") = font.value; // Cambiamos la fuente del parrafo
       }
 
   </script>
