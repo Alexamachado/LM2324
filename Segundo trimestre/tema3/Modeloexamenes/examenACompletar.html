@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" dir="ltr">
+<html lang="es" dir="ltr"> <!--direccion texto-->
   <head>
     <meta charset="utf-8">
     <title>Modelo 1</title>
@@ -10,18 +10,26 @@
     <tr>
       <td><button onclick="aumenta()" type="button" name="button">+</button> </td> <!-- Aumentamos un 25% el tamaño de la fuente -->
       <td><button onclick="disminuye()" type="button" name="button">-</button></td> <!-- Disminuimos un 25% el tamaño de la fuente -->
-      <td> <select id="input-font" class="input"  onchange="cambiarFuente(this);">
+      <td> <select id="input-font" class="input"  onchange="cambiarFuente(this);"> <!--this se refiere al objeto global-->
           <option value="Times New Roman" selected ="selected">Times New Roman</option>
           <option value="Arial">Arial</option>
           <option value="Verdana">Verdana</option>
           <option value="Helvetica">Helvetica</option>
           <option value="Monospace">Monospace</option>
           </select> </td>
+<<<<<<< HEAD
       <td><input id="color" type="color" onchange="cambiarColor"></td>
     </tr>
   </table>
   <script type="text/javascript">
       var tamano=0 // TamaNo inicial
+=======
+      <td><input id="color" type="color" onchange="cambiarColor()"></td>
+    </tr>
+  </table>
+  <script type="text/javascript">
+      var tamano=100; // TamaNo inicial
+>>>>>>> c1115cd (Viernes 16 de febrero de 2024)
       function aumenta(){
         tamano+=25;
         document.getElementById("parrafo").style.fontSize = tamano+"%"; // aumentamos un 25% el tamaño
@@ -31,10 +39,17 @@
         document.getElementById("parrafo").style.fontSize = tamano+"%"; //decrementamos un 25% el tamaño
       }
       function cambiarColor(){
+<<<<<<< HEAD
         color = document.getElementById("color").value; //Cambiamos el color del parrafo
       }
       function cambiarFuente(font) {
         document.getElementById("input-font") = font.value; // Cambiamos la fuente del parrafo
+=======
+        document.getElementById("parrafo").style.color = document.getElementById("color").value; //Cambiamos el color del parrafo
+      }
+      function cambiarFuente(font) {
+        document.getElementById("parrafo").style.fontFamily = font.value; // Cambiamos la fuente del parrafo
+>>>>>>> c1115cd (Viernes 16 de febrero de 2024)
       }
 
   </script>
