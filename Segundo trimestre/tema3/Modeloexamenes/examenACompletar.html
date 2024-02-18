@@ -17,19 +17,11 @@
           <option value="Helvetica">Helvetica</option>
           <option value="Monospace">Monospace</option>
           </select> </td>
-<<<<<<< HEAD
-      <td><input id="color" type="color" onchange="cambiarColor"></td>
-    </tr>
-  </table>
-  <script type="text/javascript">
-      var tamano=0 // TamaNo inicial
-=======
       <td><input id="color" type="color" onchange="cambiarColor()"></td>
     </tr>
   </table>
   <script type="text/javascript">
       var tamano=100; // TamaNo inicial
->>>>>>> c1115cd (Viernes 16 de febrero de 2024)
       function aumenta(){
         tamano+=25;
         document.getElementById("parrafo").style.fontSize = tamano+"%"; // aumentamos un 25% el tamaño
@@ -39,17 +31,10 @@
         document.getElementById("parrafo").style.fontSize = tamano+"%"; //decrementamos un 25% el tamaño
       }
       function cambiarColor(){
-<<<<<<< HEAD
-        color = document.getElementById("color").value; //Cambiamos el color del parrafo
-      }
-      function cambiarFuente(font) {
-        document.getElementById("input-font") = font.value; // Cambiamos la fuente del parrafo
-=======
         document.getElementById("parrafo").style.color = document.getElementById("color").value; //Cambiamos el color del parrafo
       }
       function cambiarFuente(font) {
         document.getElementById("parrafo").style.fontFamily = font.value; // Cambiamos la fuente del parrafo
->>>>>>> c1115cd (Viernes 16 de febrero de 2024)
       }
 
   </script>
