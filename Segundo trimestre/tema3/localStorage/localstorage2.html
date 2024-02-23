@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,33 +7,42 @@
 </head>
 <body id="fondo">
 <script>
+    var pulsado=0;
     function claro(){
         document.getElementById("fondo").style.backgroundColor = "#ffffff";
-        let pulsado=1;
+         pulsado=1;
+         guardar();
     }
-
     function oscuro(){
         document.getElementById("fondo").style.backgroundColor = "#000000";
-        let pulsado=2;
-    }
-
+        document.getElementById("textcolor").style.color = "#ffffff";
+         pulsado=2; //asignador, en pulsado introduce 2  "equal to"
+         guardar();       // === es identico,si el tipo es igual tambien (en uno tipo numerico, y en otro cadena)
+    }                      // equal value and equal type
     function guardar(){
-        if(pulsado==1){
-        let valores = document.getElementById("fondo").style.backgroundColor = "#ffffff";    
+        let valores;
+        if(pulsado==1){ //comparacion
+            valores = "#ffffff";    
         }
         else if(pulsado==2){
-        let valores = document.getElementById("fondo").style.backgroundColor = "#000000";    
+            valores = "#000000";    
         }
         localStorage.setItem("datos",valores); 
     }
-
     function carga(){
-      localStorage.getItem("datos")
+      let valor = localStorage.getItem("datos")
+      if (valor=="#000000"){
+        document.getElementById("fondo").style.backgroundColor = "#000000";
+        document.body.style.color="#ffffff";
+      }
+      else if(valor=="#ffffff"){
+        document.getElementById("fondo").style.backgroundColor = "#fff";
+      }
     }
 
     window.onload = carga();
 </script>
-<h1>Cambiar tema</h1>   
+<h1 id="textcolor">Cambiar tema</h1>   
 <button onclick="claro()" >Tema claro</button>
 <button onclick="oscuro()">Tema oscuro</button>
 
