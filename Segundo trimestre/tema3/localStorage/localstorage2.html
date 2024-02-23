@@ -1,28 +1,41 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guardar visitas</title>
+    <title> Cambiar de tema </title>
 </head>
-<body>
-    <p id="texto"></p>
-   <script>
-    function cargarPagina(){
-        let visitas = localStorage.getItem("visitas");
-        if (visitas!=null)
-        {
-            visitas = parseInt(visitas);
-            document.getElementById("texto").innerHTML="Has visitado esta pagina "+visitas+" veces";
-            visitas = visitas+1;
-            localStorage.setItem("visitas", visitas)
-        }
-        else{
-            document.getElementById("texto").innerHTML="Es la primera vez que entras en la pagina";
-            localStorage.setItem("visitas","2");
-        }
+<body id="fondo">
+<script>
+    function claro(){
+        document.getElementById("fondo").style.backgroundColor = "#ffffff";
+        let pulsado=1;
     }
-    window.onload = cargarPagina();
-   </script>
+
+    function oscuro(){
+        document.getElementById("fondo").style.backgroundColor = "#000000";
+        let pulsado=2;
+    }
+
+    function guardar(){
+        if(pulsado==1){
+        let valores = document.getElementById("fondo").style.backgroundColor = "#ffffff";    
+        }
+        else if(pulsado==2){
+        let valores = document.getElementById("fondo").style.backgroundColor = "#000000";    
+        }
+        localStorage.setItem("datos",valores); 
+    }
+
+    function carga(){
+      localStorage.getItem("datos")
+    }
+
+    window.onload = carga();
+</script>
+<h1>Cambiar tema</h1>   
+<button onclick="claro()" >Tema claro</button>
+<button onclick="oscuro()">Tema oscuro</button>
+
 </body>
 </html>

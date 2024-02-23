@@ -1,31 +1,34 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guardar fecha</title>
+    <title>Lista de tareas</title>
 </head>
 <body>
-    <p id="texto"></p>
-    <script>
-        function carga(){
-        let cadena = localStorage.getItem("ultimafechahora");
-        var hoy = new Date();
-        var ahora = hoy.toLocaleString();
-        if(cadena!=null)
-        {
-            //se conecto alguna vez
-            document.getElementById("texto").innerHTML="Se conecto la ultima vez el dia "+cadena;
-        }
-        else
-        {
-            //Es la primera vez que se ha conectado
-            document.getElementById("texto").innerHTML="Hasta ahora mismo, nunca te habias conectado";
-        }
-        localStorage.setItem("ultimafechahora",ahora)
+    <h1>Escriba la tarea</h1>
+    <input type="text" id="nuevatarea">
 
+    <ul id="lista">    
+    </ul>
+    <script>
+        function añadir(){
+        var lista = document.getElementById("lista");
+        for (var i=1;i++){
+            var elemento = document.createElement("li");
+            elemento.innerHTML = "Tarea"+i+nuevatarea + //(lista.children.length + 1);
+            lista.appendChild(elemento);
+            }
         }
-        window.onload = carga();
+        function guardar(){
+            let cosas =
+            localStorage.setItem("datos", cosas)
+        }
+
+        function cargar(){
+        localStorage.getItem
+        }
+        window.onload = cargar();
     </script>
 </body>
 </html>
