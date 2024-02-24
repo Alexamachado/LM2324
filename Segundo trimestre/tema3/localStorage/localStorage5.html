@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuracion de usuario personalizable</title>
+
+</head>
+<body>
+    
+<p id="parrafo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean metus ipsum, ultricies vel facilisis ac, condimentum at ligula. Nunc hendrerit scelerisque finibus. Duis fermentum metus libero, id scelerisque mi convallis id. Suspendisse varius, leo vel blandit finibus, enim leo condimentum diam, varius tincidunt urna dui a erat. Cras ut volutpat neque. In id efficitur leo. Suspendisse a ipsum tempor, rutrum eros vestibulum, porta sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc gravida quam vulputate odio elementum, vel pretium tortor elementum. Fusce vel ante eu urna placerat tincidunt. In hac habitasse platea dictumst. Sed a tortor urna. Etiam purus libero, suscipit nec diam vitae, dictum rhoncus justo. Nunc nec scelerisque justo. Aenean molestie laoreet massa, at gravida ex. Sed congue eleifend magna vel placerat.</p>
+<button onclick="aumentar()">Aumenta el tamaño</button>
+<button onclick="disminuye()">Reduce el tamaño</button>
+<button onclick="Resetear()">Resetear configuración</button>
+<input id="color" type="color" onchange="Color()">
+
+<script>
+    var tamano=100;
+        function aumentar(){
+        tamano+=25
+
+        }
+        function disminuye(){
+
+}
+function Resetear(){
+            
+}
+
+function Color(){
+document.body.style.backgroundColor = document.getElementById("color").value        
+}
+
+</script>
+</body>
+</html>
+
+Objetivo: Crea una página que permita al usuario guardar una configuración
+personalizable, como el tamaño de fuente y el color de fondo de la página.
+Proporciona formularios para ajustar estas configuraciones, guarda los cambios en
+localStorage y aplica automáticamente estas preferencias cada vez que el usuario
+visita la página.
+Especificaciones:
+● Implementa controles de usuario (como cajas de selección o deslizadores)
+para ajustar el tamaño de fuente y el color de fondo.
+● Usa localStorage para guardar las preferencias del usuario.
+● Al cargar la página, lee las preferencias guardadas y aplica los ajustes
+automáticamente.
+● Incluye una opción para restablecer la configuración a los valores
+predeterminados.
