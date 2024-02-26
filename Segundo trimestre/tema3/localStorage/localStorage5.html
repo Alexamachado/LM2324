@@ -13,7 +13,7 @@
 <button onclick="disminuye()">Reduce el tamaño</button>-->
 <button onclick="Resetear()">Resetear configuración</button>
 <input id="color" type="color" onchange="Colorfondo()">
-<select onchange="myFunction(this);" size="4">
+<select onchange="tamanotexto(this);" size="4">
     <option>10px</option>
     <option>15px</option>
     <option>20px</option>
@@ -26,38 +26,31 @@
   </select>
    
 <script>
+  var selecciontamano
+  var valcolor
+    function tamanotexto(selectTag) {
+      selecciontamano = selectTag.options[selectTag.selectedIndex].text;
+      document.getElementById("parrafo").style.fontSize = selecciontamano;
+  } 
 
-    function myFunction(selectTag) {
-    var listValue = selectTag.options[selectTag.selectedIndex].text;
-    document.getElementById("parrafo").style.fontSize = listValue;
-  }
-       /*
-        var tamano=100; 
-        function aumentar(){
-        tamano+=5
-        document.getElementById("parrafo").style.fontSize = tamano+"%"
-        }
-        function disminuye(){
-        tamaño-=5
-        document.getElementById("parrafo").style.fontSize = tamano+"%"
-        }*/
-function Resetear(){
-    document.getElementById("parrafo").style.fontSize = 100+"%";
-    document.body.style.backgroundColor = "white";    
-}
+    function Colorfondo(){
+      valcolor = document.getElementById("color").value
+      document.body.style.backgroundColor = valcolor
+    }
 
-function Colorfondo(){
-document.body.style.backgroundColor = document.getElementById("color").value        
-}
+    function Resetear(){
+      document.getElementById("parrafo").style.fontSize = 100+"%";
+      document.body.style.backgroundColor = "white";    
+    }
 
-function guardar(){
-localStorage.setItem("datos",xxx)
-}
+    function guardar(){
+      localStorage.setItem("datos",JSON.stringify(selecciontamano))
+      localStorage.setItem("datos2",valcolor)
+    }
 
-function carga(){
-localStorage.getItem("datos")
-
-}
+    function carga(){
+    JSON.parse(localStorage.getItem("datos"))
+    }
 
 window.onload = carga();
 </script>

@@ -30,19 +30,13 @@
         }
 
         function cargarPagina(){
-            let cadenaTareas = localStorage.getItem("problemas")
+            let cadenaTareas = JSON.parse(localStorage.getItem("problemas"));
             if (cadenaTareas!=null)
             {
                 // Tengo tareas pendientes
                 var lista = document.getElementById("lista");
                 var elemento = document.createElement("li");
-                /*
-                    //lo del localstorage lo tengo guardado como un array, por lo que tengo que decirle que me cree entradas
-                    //
-                for (var i=0;i<lol.length;i++){ 
-                cadena = cadena + lol[1].textContent + ",";  
-                }*/
-
+             
                 elemento.textContent = cadenaTareas; //meteme este texto de cadenatarea en las entradas (elemento) 
                 lista.appendChild(elemento);
             }
