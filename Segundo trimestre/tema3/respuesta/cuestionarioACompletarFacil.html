@@ -22,7 +22,7 @@ var preguntas = [
 
 function hacerPregunta(){
 	test = document.getElementById("examen"); /* Obtengo el div del examen */
-	if(pos>=preguntas.length){ /* ¿Cuando hemos llegado al final del cuestionario? La variable pos la comparo con algo */
+	if(pos>=preguntas.length){ /* ¿Cuando hemos llegado al final del cuestionario? La variable pos la comparo con algo */  // pos es la posicion en la matriz
 		//Tambien puedo hacer pos==preguntas.length
 		test.innerHTML = "<h2>Conseguiste acertar "+ correctas +" de "+ preguntas.length +" preguntas</h2>"; /* En correctas llevamos el contador de acertadas */
 		document.getElementById("estado").innerHTML = "Prueba completada"; /* En el estado decimos que hemos completado el cuestionario */
@@ -32,7 +32,7 @@ function hacerPregunta(){
 	}
 	document.getElementById("estado").innerHTML = "Pregunta "+(pos+1)+" de "+preguntas.length; /* Mostramos el progreso en el cuestionario */
 	pregunta = preguntas[pos][0]; /* Introducimos en la variable global pregunta la pregunta */
-	chA = preguntas[pos][1];
+	chA = preguntas[pos][1];  //Coge los valores en la pos 1 de la matriz
 	chB = preguntas[pos][2];
 	chC = preguntas[pos][3];
 	test.innerHTML = "<h3>"+pregunta+"</h3>";
@@ -53,7 +53,7 @@ function comprobarRespuesta(){
     {
 		correctas+=1; /* Contamos que ha acertado */
 	}
-	pos++;
+	pos++; //Aumenta la posicion haciendo que pase de la posicion 0 (1º pregunta) a la posicion 1 (2º pregunta)
 	hacerPregunta(); /* Hacemos pregunta */
 }
 window.addEventListener("load", hacerPregunta, false);
