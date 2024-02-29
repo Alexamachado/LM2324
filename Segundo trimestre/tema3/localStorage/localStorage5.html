@@ -13,7 +13,7 @@
 <button onclick="disminuye()">Reduce el tamaño</button>-->
 <button onclick="Resetear()">Resetear configuración</button>
 <input id="color" type="color" onchange="Colorfondo()">
-<select onchange="tamanotexto(this);" size="4">
+<!-- <select onchange="tamanotexto(this);" size="4">
     <option>10px</option>
     <option>15px</option>
     <option>20px</option>
@@ -23,24 +23,24 @@
     <option>40px</option>
     <option>45px</option>
     <option>50px</option>
-  </select>
+  </select> -->
    
- <!-- <td> <select id="input-font" class="input"  onchange="cambiarFuente(this);"> <!--this se refiere al objeto global-->
-    <option value="Times New Roman" selected ="selected">Times New Roman</option>
-    <option value="Arial">Arial</option>
-    <option value="Verdana">Verdana</option>
-    <option value="Helvetica">Helvetica</option>
-    <option value="Monospace">Monospace</option>
-    </select> </td>*/ -->
+ <td> <select id="input-size" class="input" onchange="tamanotexto(this);"> 
+    <option value="10px" selected ="selected">10px</option>
+    <option value="15px">15px</option>
+    <option value="20px">20px</option>
+    <option value="30px">30px</option>
+    <option value="35px">35px</option>
+    </select> </td>
 
 <script>
   var preferencias ={
-    taman
-    color
+    tamano
+    
   }
-    function tamanotexto(selectTag) {
-    document.getElementById("parrafo").style.fontSize = selectTag.options[selectTag.selectedIndex].text;
-     preferencias.tamano = d
+    function tamanotexto(size){  //function tamanotexto(selectTag) {
+    document.getElementById("parrafo").style.fontSize = size.value //selectTag.options[selectTag.selectedIndex].text;
+     preferencias.tamano = size.value
   } 
 
     function Colorfondo(){
