@@ -26,16 +26,18 @@
   </select>
    
 <script>
-  var selecciontamano
-  var valcolor
+  var preferencias ={
+    taman
+    color
+  }
     function tamanotexto(selectTag) {
-      selecciontamano = selectTag.options[selectTag.selectedIndex].text;
-      document.getElementById("parrafo").style.fontSize = selecciontamano;
+    document.getElementById("parrafo").style.fontSize = selectTag.options[selectTag.selectedIndex].text;
+     preferencias.tamano = d
   } 
 
     function Colorfondo(){
-      valcolor = document.getElementById("color").value
-      document.body.style.backgroundColor = valcolor
+      document.body.style.backgroundColor = document.getElementById("color").value
+      preferencias.color =document.body.style.backgroundColor
     }
 
     function Resetear(){
@@ -44,25 +46,34 @@
     }
 
     function guardar(){
-      localStorage.setItem("datos",JSON.stringify(selecciontamano))
-      localStorage.setItem("datos2",valcolor)
+      localStorage("preferencias", JSON.stringify(preferencias));
+
+      localStorage.setItem("tamaño", document.getElementById("parrafo").style.fontSize)
+      localStorage.setItem("color", document.body.style.backgroundColor);
     }
 
     function carga(){
-    JSON.parse(localStorage.getItem("datos"))
+    let tamano = localStorage.getItem("tamaño");
+    if (tamano!=null){
+      document.getElementById("parrafo").style.fontSize = tamano
     }
+      else{
+      document.getElementById("parrafo").style.fontSize = "25px"
+    }
+    let color = localStorage.getItem("color")
+    if(color!=null)
+    {
+      document.body.style.backgroundColor = color;
+    }
+    else{
+      document.body.style.backgroundColor= "white"; 
+    }  
+    }
+    
 
 window.onload = carga();
 </script>
 </body>
 </html>
 
-Objetivo: Crea una página que permita al usuario guardar una configuración
-personalizable, como el tamaño de fuente y el color de fondo de la página.
-Proporciona formularios para ajustar estas configuraciones, guarda los cambios en
-localStorage y aplica automáticamente estas preferencias cada vez que el usuario
-visita la página.
-Especificaciones:
-● Usa localStorage para guardar las preferencias del usuario.
-● Al cargar la página, lee las preferencias guardadas y aplica los ajustes
-automáticamente.
+
