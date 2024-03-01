@@ -18,58 +18,53 @@
           <option value="Monospace">Monospace</option>
           </select> </td>
       <td><input id="color" type="color" onchange="cambiarColor()"></td>
-      <td><button onclick="guardar()">Guardar configuración</button></td>      
+      <td><button onclick="guardar()">Guardar preferencias</button></td>
+      
     </tr>
   </table>
   <script type="text/javascript">
 
-var tamano=100; // TamaNo inicial
+      var preferencias = {
+        fuente: "Times New Roman",
+        tamano: 100,
+        color: "#000"
+      }
 
       function aumenta(){
-        tamano+=25;
         document.getElementById("parrafo").style.fontSize = tamano+"%"; // aumentamos un 25% el tamaño
+        preferencias.tamano= tamano+"%"
     }
       function disminuye(){
-        tamano-=25;
         document.getElementById("parrafo").style.fontSize = tamano+"%"; //decrementamos un 25% el tamaño
+        preferencias.tamano-= 25;
     }
       function cambiarColor(){
         document.getElementById("parrafo").style.color = document.getElementById("color").value; //Cambiamos el color del parrafo
+        preferencias.color = document.getElementById("parrafo").style.color
       }
       function cambiarFuente(font) {
         document.getElementById("parrafo").style.fontFamily = font.value; // Cambiamos la fuente del parrafo
+      preferencias.fuente = font.value;
     }
       
       function guardar(){
-
-      localStorage.setItem("tamaño", tamano);
-      localStorage.setItem("fuente", document.getElementById("parrafo").style.fontFamily)
-      localStorage.setItem("color", document.getElementById("parrafo").style.color)
+      localStorage.setItem("preferencias", JSON.stringify(preferencias));
+      
     }
 
     function carga(){
-    tamano = localStorage.getItem("tamaño")
-    if (tamano!=null){
-      document.getElementById("parrafo").style.fontSize = tamano+"%"
-    }
-    else{
-        tamano = 100; //si no hay nada en almacenamiento local
-    }    
-    let fuente = localStorage.getItem("fuente");
-    if (fuente!=null){
-      document.getElementById("parrafo").style.fontFamily = fuente;
-    }
-    else{
-      document.getElementById("parrafo").style.fontFamily = "Times New Roman"
-    }
-    let color = localStorage.getItem("color")
-    if(color!=null)
-    {
-      document.getElementById("parrafo").style.color = color;
-    }
-    else{
-      document.getElementById("parrafo").style.color= "black"; 
-    }   
+      var objeto = localStorage.getItem("preferencias")
+      if (objeto!=null){
+        preferencias= JSON.parse(objeto);
+        document.getElementById("parrafo").style.color = preferencias.color;
+        document.getElementById("parrafo").style.fontFamily = preferencias.fuente;
+        document.getElementById("parrafo").style.fontSize =preferencias.tamano + "%";
+      }
+      else{
+        preferencias.tamano = 100;
+        preferencias.fuente = "Times New Roman";
+        preferencias.color = "#000"
+      }
     }
     window.onload = carga(); 
   </script>
