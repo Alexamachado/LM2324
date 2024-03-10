@@ -55,7 +55,7 @@
     function carga(){
       var objeto = localStorage.getItem("preferencias")
       if (objeto!=null){
-        preferencias= JSON.parse(objeto);
+        preferencias= JSON.parse(objeto);  //Lo convierte en un objeto de javascript
         document.getElementById("parrafo").style.color = preferencias.color;
         document.getElementById("parrafo").style.fontFamily = preferencias.fuente;
         document.getElementById("parrafo").style.fontSize =preferencias.tamano + "%";

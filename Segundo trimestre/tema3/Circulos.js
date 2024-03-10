@@ -24,7 +24,7 @@ function ocultarb() {
 
  /* Version con un solo boton */
  function ocultar_o_mostrar(caja){
-    if (document.getElementById(caja).style.visibility =="visible" || document.getElementById(caja).style.visibility =="")
+    if (document.getElementById(caja).style.visibility =="visible" || document.getElementById(caja).style.visibility =="")  //Si el valor es "visible" o "" el circulo se oculta
         document.getElementById(caja).style.visibility = "hidden";
     else
         document.getElementById(caja).style.visibility = "visible";

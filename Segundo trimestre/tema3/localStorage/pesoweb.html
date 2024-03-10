@@ -24,10 +24,8 @@
         let pesito = localStorage.getItem("pesoactual")
     if (pesito!=null){
         document.getElementById("anterior").innerHTML="Su peso anterior era de " + pesito + " Kg";
-       } 
-       else{
-        document.getElementById("anterior").innerHTML="No tiene peso guardado";
-       }
+       } else{
+        document.getElementById("anterior").innerHTML="No tiene peso guardado"; }
     }
 
     function comparar(){
@@ -36,11 +34,8 @@
     if (pesito<=datosactuales){
         calculopeso = calculopeso + pesito-datosactuales;
         document.getElementById("resultado").innerHTML="Ha aumentado " + calculopeso  ;
-       } 
-        else if(pesito==datosactuales){
-        
-            document.getElementById("resultado").innerHTML="Tiene el mismo peso";
-        }
+       } else if(pesito==datosactuales){
+        document.getElementById("resultado").innerHTML="Tiene el mismo peso"; }
        else{
         calculopeso = calculopeso + pesito - datosactuales;
         document.getElementById("resultado").innerHTML="Ha perdido " + calculopeso + ". Enhorabuena!";

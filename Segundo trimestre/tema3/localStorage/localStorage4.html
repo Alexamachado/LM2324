@@ -27,7 +27,7 @@ function agregarTarea() {
 
 function guardarTareas() {
     const tareas = [];
-    document.querySelectorAll('#listaTareas li').forEach(function(item) {
+    document.querySelectorAll('#listaTareas li').forEach(function(item) { //returns the first child element that matches a specified CSS selector(s) of an element
         tareas.push(item.firstChild.textContent);
     });
     localStorage.setItem('tareas', JSON.stringify(tareas));

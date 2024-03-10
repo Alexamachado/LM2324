@@ -10,11 +10,11 @@
 
     
     <script>
-        function getRandomArbitrary(min, max){
+        function valor(min, max){               //getRandomArbitrary
             return Math.random() * (max - min) + min;
         }
             var palabras=["casa","coche","perro","cerveza"]
-            var n = parseInt(getRandomArbitrary(0,4))
+            var n = parseInt(valor(0,4))
             document.write(palabras[n]);
             // [] para acceder a x elemento
     </script>

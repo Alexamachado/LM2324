@@ -11,9 +11,9 @@ var s=0
 
 function sumar(){
     s = 0;
-    for (var i = 0 ; i< numeros.length; i++) {
-        s += numeros[i];
-    }
+    for (var i = 0 ; i< numeros.length; i++) {  //i cuenta la longitud
+        s += numeros[i];   //i marca la posicion del primer numero, y se suma a s;
+    }                      // despues marca el segundo, y se suma, y asi hasta llegar al ultimo numero
     document.getElementById("resultado").innerHTML = s;
 }
 

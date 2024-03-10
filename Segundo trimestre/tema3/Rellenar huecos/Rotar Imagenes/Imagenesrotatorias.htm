@@ -23,19 +23,18 @@
     }
 
     function siguiente(){
-        if (indice==todaslasfotos-1)
+        if (indice==todaslasfotos-1) //no va, hay que mirar como reiniciarlo
         {indice=0;}
-    else
-    {
+    else {
         indice=indice+1;
     }
-    document.getElementById("fotoActual").src = "rotatorias/banner"+indice+".png"
+    document.getElementById("fotoActual").src = "rotatorias/banner"+indice+".png" //se llaman a las fotos aqui
     publicidad();
 }
 
 function enlace(){
     switch(indice){
-        case 0:window.open("https://store.dsautomobiles.es/configurable"); break;
+        case 0:window.open("https://store.dsautomobiles.es/configurable"); break; //habre una nueva ventana del buscador o pestaña.
         case 1:window.open("https://www.elcorteingles.es/supermercado/"); break;
         case 2:window.open("https://www.elcorteingles.es/daitsu/electrodomesticos/aire-acondicionado/"); break;
         case 3:window.open("https://www.madridhifi.com"); break;
