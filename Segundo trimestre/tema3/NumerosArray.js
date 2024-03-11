@@ -1,7 +1,7 @@
 var numeros = [];
 
 function anadir() {
-    var n = parseFloat(document.getElementById("n").value);
+    var n = parseFloat(document.getElementById("n").value);  // Parsefloat devuelve el primer numero, hace falta
     numeros.push(n);
     document.getElementById("resultado").innerHTML = numeros
 }

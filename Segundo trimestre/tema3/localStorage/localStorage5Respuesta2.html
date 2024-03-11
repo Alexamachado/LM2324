@@ -31,6 +31,7 @@
       }
 
       function aumenta(){
+        preferencias.tamano= tamano+"%"
         document.getElementById("parrafo").style.fontSize = tamano+"%"; // aumentamos un 25% el tamaño
         preferencias.tamano= tamano+"%"
     }
@@ -49,7 +50,6 @@
       
       function guardar(){
       localStorage.setItem("preferencias", JSON.stringify(preferencias));
-      
     }
 
     function carga(){
