@@ -14,10 +14,12 @@
     <script>
         function anadirElemento() {
             var lista = document.getElementById("lista");
-            var elemento = document.createElement("li");
-            elemento.textContent = "Elemento " + (lista.children.length + 1); // Observa en la consola lista y lista.children
-            lista.appendChild(elemento);
-        }
+            var elemento = document.createElement("li");  // elemento, crea el elemento li
+            elemento.textContent = "Elemento " + (lista.children.length + 1); //texcontent se refiere al contenido de texto puro de un elemento HTML. Solo obtiene o 
+                                                                              //establece texto sin etiquetas HTML ni ningún formato adicional. como si utilizara innerhtml
+                                                                              //lista.children.length es un NUMERO
+            lista.appendChild(elemento);    // anexa "elemento" al final de "lista"
+        }                                    // Observa en la consola lista y lista.children
     </script>
 </body>
 </html>
