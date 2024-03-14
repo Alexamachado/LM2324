@@ -26,13 +26,13 @@
         var numeroAzar;
         var inicio;
         function generaNumero(){
-            numeroAzar = Math.ceil(Math.random()*9).toString()
-                    + Math.ceil(Math.random()*9).toString()
+            numeroAzar = Math.ceil(Math.random()*9).toString()  //entero igual o inmediatamente superior a un numero
+                    + Math.ceil(Math.random()*9).toString()         //tres cifras
                     + Math.ceil(Math.random()*9).toString();
             document.getElementById("secreto").innerHTML = numeroAzar;        
         } 
         function comenzar(){
-            inicio = new Date().getTime();
+            inicio = new Date().getTime();  //coge los segundos
             generaNumero();
             document.getElementById("btn-comenzar").style.display = "none";
             document.getElementById("btn-comprueba").style.display = "block";
