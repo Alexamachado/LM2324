@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculadora distancias</title>
+</head>
+<body>
+    <h1> Calculadora de distancia de viajes</h1>
+    <input type="text" id="cuadro">
+    <button onclick="comprobar()" placehoder="distancia1, distaancia2">Calcula</button>
+    <p id="resultado"></p>
+
+    <script>
+
+var cifras = [];
+function comprobar(){  
+    var cadenanumeros = document.getElementById("cuadro").value;
+    var separador = cadenanumeros.split(',');
+    cifras = separador.toString();
+    
+    for (var i=0;i<cifras.length;i++) {
+        var suma = suma + cifras[i];
+    }
+    if (isNaN(suma)){ 
+    document.getElementById("resultado").innerHTML="Debes de poner numeros"
+    }else{
+        document.getElementById("resultado").innerHTML = "La distancia es de "+ suma + " km";  
+    }  
+    }
+    </script>
+
+</body>
+</html>
+
