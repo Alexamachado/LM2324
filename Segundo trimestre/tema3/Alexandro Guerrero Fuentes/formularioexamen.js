@@ -69,8 +69,19 @@ function guardar(){
 }
 
 function cargar(){
-    car=localStorage.getItem("datos")
-    parseado=JSON.parse(car)
+    let objeto=localStorage.getItem("datos")
+    if (objeto!=null){
+        let objetoAux = JSON.parse(parseado);
+        document.getElementById("nombre").innerHTML = objetoAux.nombre;
+        document.getElementById("apellidos").innerHTML = objetoAux.apellidos;
+        document.getElementById("dni").innerHTML = objetoAux.dni;
+    }
 }
 
 window.onload=cargar();
+
+/*
+/A-Z.test(clave1) //Si devuelve true es mayuscula
+/a-z.test(clave2) //si devuelve true es minuscula
+/0-9.test(clave3) //si devuelve true tiene numeros
+*/

@@ -16,13 +16,13 @@ var jugar = false;
 function mostrar(element)
     {	
 		var now = new Date()	
-		if (jugar==false) { // Si no había comenzado el juego		
+		if (jugar==false /*!jugar*/) { // Si no había comenzado el juego		
 		  jugar = true;		
           startTime = now.getTime();
         }	
 	
 		if (now.getTime() - startTime > 20000) {		
-				element = !element.checked; // Cambiamos el estado de la casilla a su "contrario"	
+				element.checked = !element.checked; // Cambiamos el estado de la casilla a su "contrario"	
 				return;
 		}	
 	
@@ -36,7 +36,7 @@ function mostrar(element)
 function restart(form) {	
 		total = 0;	
 		jugar = false;
-		for(var i=0;i<form.elements.length;i++) {		// Inicializamos todas las casillas
+		for(var i=0;i<100;i++) {		// Inicializamos todas las casillas, no se pone form.elements.length porque coge mas cosas como el reset 
 				form.elements[i].checked = false;	
 		}
 }

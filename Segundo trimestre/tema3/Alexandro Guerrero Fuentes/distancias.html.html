@@ -7,26 +7,23 @@
 </head>
 <body>
     <h1> Calculadora de distancia de viajes</h1>
-    <input type="text" id="cuadro">
-    <button onclick="comprobar()" placehoder="distancia1, distaancia2">Calcula</button>
+    <input type="text" id="cuadro" placeholder="distancia1, distancia2">
+    <button onclick="comprobar()">Calcula</button>
     <p id="resultado"></p>
 
     <script>
-
-var cifras = [];
 function comprobar(){  
     var cadenanumeros = document.getElementById("cuadro").value;
-    var separador = cadenanumeros.split(',');
-    cifras = separador.toString();
-    
-    for (var i=0;i<cifras.length;i++) {
-        var suma = suma + cifras[i];
+    var separador = cadenanumeros.split(','); //Devuelve un array
+    let total = 0    
+    for (var i=0;i<separador.length;i++) {
+        let distancia = parseFloat(separador[i]);
+        if(isNaN(distancia)){
+            document.getElementById("resultado").innerHTML= "Debes de poner numeros"    
+        }    
+        total = total + distancia;
     }
-    if (isNaN(suma)){ 
-    document.getElementById("resultado").innerHTML="Debes de poner numeros"
-    }else{
-        document.getElementById("resultado").innerHTML = "La distancia es de "+ suma + " km";  
-    }  
+    document.getElementById("resultado").innerHTML = "La distancia es de "+ total + " km";
     }
     </script>
 
