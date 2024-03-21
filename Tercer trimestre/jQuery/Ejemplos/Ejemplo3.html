@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            background-color: red;
+            width: 300px;
+            height: 300px;
+            color: white;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"> </script>
+<script>
+    $(document).ready(function () { 
+        $("div").mouseenter(function(){
+            $('#ejemplo').hide();
+        })
+
+        $("div").mouseleave(function(){
+            $('#ejemplo').show();
+        })
+        });
+        </script>
+</head>
+<body>
+    <div><p id="ejemplo"> Parrafo dentro de la caja</p></div>
+</body>
+</html>

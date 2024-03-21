@@ -1,0 +1,41 @@
+<!-- 2. En base al ejercicio anterior vamos a identificar el encabezado mediante un id y los
+párrafos que ocupan una posición par pertenecerán a la clase “pares”. Realiza las
+modificaciones pertinentes para que los botones “Ocultar” y “Aparecer” utilicen los
+selectores convenientemente, para el encabezado su identificador y para los
+párrafos pares su clase de CSS.
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    
+  $("#boton1").click(function ocultar(){
+    $(".par, #something").hide();
+  });
+  $("#boton2").click(function mostrar(){
+    $(".par, #something").show();
+  });
+});
+</script>
+
+</head>
+<body>
+    <h1 id="something"> Hola</h1>
+    <p> Como estas asdadsadsadsadsadsa</p>
+    <p class="par"> Vas bien mackkkkkkkkkkkkkkkkkkkkk</p>
+    <p>asdadsadsadsadsadsadsadasdsad</p>
+    <p class="par">adasdsadafdsgsfdgdfdfhdfdfdfgfdg</p>
+    <p>adasdsadafdsgsfdgdfdfhdfdfdfgfdg</p>
+    <p class="par">adasdsadafdsgsfdgdfdfhdfdfdfgfdg</p>
+    <p>adasdsadafdsgsfdgdfdfhdfdfdfgfdg</p>
+    <p class="par">adasdsadafdsgsfdgdfdfhdfdfdfgfdg</p>
+    <button id="boton1">Ocultar</button>
+    <button id="boton2">Mostrar</button>
+</body>
+</html>

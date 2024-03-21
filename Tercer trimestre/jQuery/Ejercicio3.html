@@ -1,0 +1,40 @@
+<!-- 3. En este ejercicio vamos a manipular las propiedades CSS de los elementos.
+Cambiamos el comportamiento de los botones para que aparezcan las leyendas
+“Más grande” y “Menos grande”. El objetivo es que al pulsarlos el encabezado y los
+párrafos “pares” cambien su propiedad font-size.
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    
+  $("#boton1").click(function (){
+    $(".par, #something").hide();
+  });
+  $("#boton2").click(function (){
+    $(".par, #something").show();
+  });
+});
+</script>
+
+</head>
+<body>
+    <h1 id="something"> Hola</h1>
+    <p> Como estas asdadsadsadsadsadsa</p>
+    <p class="par"> Vas bien mackkkkkkkkkkkkkkkkkkkkk</p>
+    <p>asdadsadsadsadsadsadsadasdsad</p>
+    <p class="par">adasdsadafdsgsfdgdfdfhdfdfdfgfdg</p>
+    <p>adasdsadafdsgsfdgdfdfhdfdfdfgfdg</p>
+    <p class="par">adasdsadafdsgsfdgdfdfhdfdfdfgfdg</p>
+    <p>adasdsadafdsgsfdgdfdfhdfdfdfgfdg</p>
+    <p class="par">adasdsadafdsgsfdgdfdfhdfdfdfgfdg</p>
+    <button id="boton1">Ocultar</button>
+    <button id="boton2">Mostrar</button>
+</body>
+</html>
