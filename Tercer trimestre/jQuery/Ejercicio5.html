@@ -1,0 +1,62 @@
+<!--5. Realiza un documento HTML donde se visualice el funcionamiento de los métodos
+de jQuery fadeIn() y fadeOut(). ¿Para qué sirve fadeToggle()?-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FadeIn, FadeOut, FadeToggle</title>
+    <style>
+        #roja{
+            background-color:red;
+            width: 200px;
+            height: 200px;
+        }
+
+        #azul{
+            background-color:blue;
+            width: 200px;
+            height: 200px;
+        }
+
+        #naranja{
+            background-color:orange;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+     <script>
+        $(document).ready(function() {
+            $("#aparecer").click(function(){; 
+           $("#roja").fadeIn();
+           $("#azul").fadeIn();
+           $("#naranja").fadeIn(); 
+        });
+
+        $("#desaparecer").click(function() {
+           $("#roja").fadeOut();
+           $("#azul").fadeOut();
+           $("#naranja").fadeOut(); 
+        });
+
+        $("#alternar").click(function(){
+           $("#roja").fadeToggle();
+           $("#azul").fadeToggle();
+           $("#naranja").fadeToggle(); 
+        });
+    });
+        </script>
+</head>
+<body>
+    
+    <div id="roja"></div>
+    <div id="azul"></div>
+    <div id="naranja"></div>
+    
+    <button id="aparecer">FadeIn</button>
+    <button id="desaparecer">FadeOut</button>
+    <button id="alternar">FadeToggle</button>
+</body>
+</html>

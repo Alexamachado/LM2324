@@ -1,0 +1,63 @@
+<!--6. Realiza un documento html que contenga diferentes títulos, párrafos, imágenes y
+enlaces. Incluye un script que muestre en una tabla: número de encabezados,
+párrafos, imágenes y enlaces.-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Encabezado 1</h1>
+    <h1>Encabezado 1</h1>
+    <h2>Encabezado 2</h2>
+    <p>Lorem ipsum dolor sit <a href="http//" target="_blank" rel="noopener noreferrer"> sit amet</a> amet consectetur adipisicing elit. Enim adipisci aliquid excepturi nisi, amet officiis perferendis molestiae illo, quibusdam reprehenderit hic cum quasi laborum inventore sed, dolorem repudiandae quod alias.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe iure ab atque ratione deserunt blanditiis nulla minima ipsa ea quaerat nesciunt voluptatibus perferendis labore nemo ipsum possimus mollitia, dolorum praesentium.</p>
+    <img src="foto.jpg" alt="es una foto">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus tempore aut nobis corrupti. Neque ut sequi cupiditate, minima id tempore in. Est, doloribus cum? Distinctio ut at laborum pariatur similique?</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni inventore ad, dolore velit neque quibusdam culpa possimus in iure enim doloribus, temporibus ipsam quam odit sequi quisquam debitis! Eaque, ipsam.</p>
+    <table>
+        <tr>
+            <th>Encabezados </th>
+            <th>Parrafos </th>
+            <th>Enlaces </th>
+            <th>Imagenes </th>
+        </tr>
+        <tr>
+            <td id="enc"> 
+
+            </td>
+            <td id="par"> 
+
+            </td>
+            <td id="enl"> 
+
+            </td>
+            <td id="img">
+
+            </td>
+        </tr>
+    </table>
+    <script>
+        $(document).ready(function() {
+            $("#enc").html(
+                $("h1,h2").length
+                );
+
+            $("#par").html(
+                $("p").length
+                );
+                
+            $("#enl").html(
+                $("a").length
+                );
+
+            $("#img").html(
+                $("img").length
+                );
+        });
+    </script>
+</body>
+</html>

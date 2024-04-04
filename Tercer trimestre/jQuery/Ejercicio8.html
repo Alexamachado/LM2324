@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1> Encabezado</h1>
+    <img src="foto.jpg">
+    <p id="primero">Lorem ipsum dolor, sit amet <a href="https://www.marca.com/" target="_blank" rel="noopener noreferrer"></a> consectetur adipisicing elit. Placeat quis, accusantium officiis obcaecati eaque quibusdam nostrum fuga et quidem cupiditate labore? Amet sint repellat omnis et eum, maxime deleniti vel.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, aliquid. Rerum et ipsum quia, molestias aliquid aspernatur cupiditate doloremque vero. Consequuntur, a! Omnis obcaecati mollitia exercitationem molestias id vitae delectus.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam porro nulla cumque! Enim adipisci totam beatae dolorem animi neque placeat corrupti. Maxime corrupti ut sit delectus dolore placeat nemo soluta.</p>
+    <button id="boton1">Obtener html del Encabezado</button>
+    <button id="boton2">Obtener src de la imagen</button>
+    <button id="boton3">Obtener html del parrafo</button>
+    <script>
+        $(document).ready(function () {
+            $("#boton1").click(function(){
+            alert("El html del encabezado es:"+$("h1").html());
+            });
+            $("#boton2").click(function(){
+            alert("El src de la imagen es:"+$("img").attr("src"));
+            });
+            $("#boton3").click(function(){
+            alert("El html del parrafo es:"+$("#primero").html());
+            });
+        });
+    </script>
+</body>
+</html>
