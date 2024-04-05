@@ -9,10 +9,20 @@ contenga un texto centrado y que mediante un botón vacíe de contenido el mismo
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 11</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+  #caja{
+            background-color:orange;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+        }
+
+    </style>
 </head>
 <body>
     <h1>Vaciar caja texto</h1>
-    <center> <div id="caja"> Pulsa el boton para vaciarme pls</div> </center>
+  <div id="caja"> Pulsa el boton para vaciarme pls</div>
     <button id="boton">Vaciar</button>
     <script>
         $(document).ready(function () {

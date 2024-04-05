@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <style>
+        input {
+            margin: 5px 5px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <input type="text" placeholder="Nombre" id="nombre" required> <span id="errorNombre"></span> <br>
+    <input type="text" placeholder="Apellidos" id="apellidos" required> <span id="errorApellidos"></span> <br>
+    <input type="email" placeholder="Email" id="correo" required>  <span id="errorEmail"> </span><br>
+    <input type="date" name="" id="fnac"> <br>
+    <input type="text" name="" id="dni" placeholder="DNI:123456789X" required> <br>
+    <input type="password" name="" id="password1" placeholder="Contraseña" required> <span id="errorContra1"></span>  <br>
+    <input type="password" name="" id="password2" placeholder="Repite contraseña" required> <span id="errorContra2"></span>  <br>
+    <input type="checkbox" name="" id="privacidad" required> <label for="">Acepto politica de privacidad </label> <span id="errorPrivacidad"></span> <br>
+<button>Registrarse</button>
+<script>
+    $(document).ready(function () {
+        $("button").click(function(){
+            let patronEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+            let patronContraseña = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%-_.*?&])[A-Za-z\d$@$!%-_.*?&]{8,}/;
+            let nombre = $("#nombre").val();
+            let apellido = $("#apellidos").val();
+            let correo = $("#correo").val();
+            let contra1 = $("#password1").val();
+            let contra2 = $("#password2").val();
+            let privacidad = $("#privacidad").is(":checked");
+            if (nombre==""){
+                $("#errorNombre").text("Rellenar el campo nombre");
+            }
+            else{
+                $("#errorNombre").text("");
+            }
+            if (apellido == "")
+            {
+                $("#errorApellidos").text("Rellenar el campo apellidos");
+            }
+            else{
+                $("#errorApellidos").text("");
+            }
+            if (correo == "")
+            {
+                $("#errorEmail").text("Rellenar correo electrónico algo@algo.com");
+            }
+            else{
+                //El correo no es la cadena vacia
+                if (!patronEmail.test(correo)){
+                //No encaja con el patron de Emal
+                $("#errorEmail").text("Formato no valido  de correo");
+                }
+                else{ 
+                    $("#errorEmail").text("")
+                }
+            }
+            if (contra1!=contra2){
+                $("#errorContra1").text("Las contraseñas deben coincidar");
+                $("#errorContra2").text("Las contraseñas deben coincidir")         
+            }
+            else{
+                //Las contraseñas son iguales
+                if (!patronContraseña.test(contra1)){
+                    $("#errorContra1").text("No cumple con requisitos. Longitud minima 8, incluir mayuscula, minuscula, y digito")
+                    $("#errorContra2").text("No cumple con requisitos. Longitud minima 8, incluir mayuscula, minuscula, y digito")
+                }
+                else{
+                    $("#errorContra1").text("")
+                    $("#errorContra2").text("")
+                }
+            }
+            if (privacidad!="on"){
+                $("#errorPrivacidad").text("Debe aceptar politicas privacidad")
+            }
+            else{
+                $("#errorPrivacidad").text("")
+            }
+        })
+    });
+</script>
+</body>
+</html>
+
+
+<!-- Validate JQuery-->

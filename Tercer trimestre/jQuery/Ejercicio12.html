@@ -10,15 +10,27 @@ texto”. Utiliza algunas de las funciones de clases que tiene jQuery.-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 12</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        #caja{
+                  background-color:orange;
+                  width: 200px;
+                  height: 200px;
+                  text-align: center;
+              }
+        
+              .azul{
+                color: aqua;
+              }
+          </style>
 </head>
 <body>
     <h1>Esconder caja texto</h1>
-    <center> <div id="caja"> Pulsa el boton para esconderme pls</div> </center>
-    <button id="boton">Vaciar</button>
+    <div id="caja"> Pulsa el boton para esconderme pls</div>
+    <button id="boton">Mostrar/Ocultar</button>
     <script>
         $(document).ready(function () {
             $("#boton").click(function (){
-            $("#caja").toggle();
+            $("#caja").toggleClass("azul");
             });
              });
     </script>
