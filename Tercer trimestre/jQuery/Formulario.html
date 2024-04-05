@@ -8,6 +8,9 @@
         input {
             margin: 5px 5px;
         }
+        span {
+            color:red;
+        }
     </style>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </head>
@@ -21,6 +24,7 @@
     <input type="password" name="" id="password2" placeholder="Repite contraseña" required> <span id="errorContra2"></span>  <br>
     <input type="checkbox" name="" id="privacidad" required> <label for="">Acepto politica de privacidad </label> <span id="errorPrivacidad"></span> <br>
 <button>Registrarse</button>
+
 <script>
     $(document).ready(function () {
         $("button").click(function(){
@@ -38,15 +42,13 @@
             else{
                 $("#errorNombre").text("");
             }
-            if (apellido == "")
-            {
+            if (apellido == ""){
                 $("#errorApellidos").text("Rellenar el campo apellidos");
             }
             else{
                 $("#errorApellidos").text("");
             }
-            if (correo == "")
-            {
+            if (correo == ""){
                 $("#errorEmail").text("Rellenar correo electrónico algo@algo.com");
             }
             else{
@@ -74,7 +76,7 @@
                     $("#errorContra2").text("")
                 }
             }
-            if (privacidad!="on"){
+            if (!privacidad){
                 $("#errorPrivacidad").text("Debe aceptar politicas privacidad")
             }
             else{
