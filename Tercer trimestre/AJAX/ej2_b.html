@@ -16,9 +16,10 @@
     <script>
        
      $.get("https://jsonip.com").done(function(ip){
-      let mensaje = "Tu direccion ip es: " + ip.ip
-      $("#objetivo").text(mensaje) })
-     
+      var mensaje = "Tu direccion ip es: " + ip.ip
+      $("#objetivo").text(mensaje)
+      console.log(mensaje) })
+      
 /*        Solucion profesor
       $.get('https://jsonip.com').done(function(e){
             $("#objetivo").text("La dirección IP pública es "+e.ip);
