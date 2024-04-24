@@ -38,14 +38,13 @@
        })                         */
 
        $("a.enlaces").each(function(){ // Con esto barremos el documento buscando elementos tipo anchor tag y clase enlaces
-            var link = this;
+            var link = this; //Coje todo el objeto
             $.ajax({
                 type: "HEAD",   // pide una respuesta idéntica a la de una petición GET, pero sin el cuerpo de la respuesta. (https://developer.mozilla.org/es/docs/Web/HTTP/Methods)
-                url: link.href, // Dirección del servidor
-                complete: function (xhr){
-                    var size = xhr.getResponseHeader('Content-Length');
-                    // Añadimos a los links el tamaño
-                    $(link).append(' ('+unidadesLegibles(size)+')');
+                url: link.href, // Dirección del servidor; URL: A string containing the URL to which the request is sent; ".href" se refiere al href de arriba
+                complete: function (xhr){  // complete: A function to be called when the request finishes; xhr: Callback for creating the XMLHttpRequest object.
+                    var size = xhr.getResponseHeader('Content-Length'); // Indica el peso
+                    $(link).append(' ('+unidadesLegibles(size)+')'); // Añadimos a los links el tamaño
                 }
             })
         })
