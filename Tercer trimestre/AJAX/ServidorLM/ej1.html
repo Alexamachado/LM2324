@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
-        function unidadesLegibles(size){
+        function unidadesLegibles(size){    //Bytes a KB,MB...
             let unidades = ['bytes','KB','MB','GB','TB'];
             let ord = Math.floor(Math.log(size)/Math.log(1024));
             let s;
@@ -41,6 +41,7 @@
             var link = this; //Coje todo el objeto
             $.ajax({
                 type: "HEAD",   // pide una respuesta idéntica a la de una petición GET, pero sin el cuerpo de la respuesta. (https://developer.mozilla.org/es/docs/Web/HTTP/Methods)
+            //Get pero sin descargarte las cosas. "dime para todos los enlaces el content-lenght de los mismos"
                 url: link.href, // Dirección del servidor; URL: A string containing the URL to which the request is sent; ".href" se refiere al href de arriba
                 complete: function (xhr){  // complete: A function to be called when the request finishes; xhr: Callback for creating the XMLHttpRequest object.
                     var size = xhr.getResponseHeader('Content-Length'); // Indica el peso
