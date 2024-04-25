@@ -18,17 +18,16 @@
         let temperatura = "La temperatura en tu zona es de: " + ip.main.temp
         console.log(ip)
       $("#objetivo").append(temperatura); })  */
-      
-        $.get("http://api.openweathermap.org/data/2.5/weather?id=524901&appid=f5b5e874d197efc0fc1b9c59f039c190").done(function(ip){
-        if(ip.main.temp=error){
+      $(document).ready(function (){
+        $.get("http://api.openweatheather?id=524901&appid=f5b5e874d197efc0fc1b9c59f039c190").done(function(ip){
           let temperatura = "La temperatura en tu zona es de: " + ip.main.temp
-          $("#objetivo").append(temperatura)
-        }
-        else{
+          $("#objetivo").append(temperatura) })
+      .fail(function () {
       let error_temperatura ="Ha habido un error"
-      $("#objetivo").append(error_temperatura)
-      }
+      $("#objetivo").text(error_temperatura)
     })
+  })
+
       //console.log(ip) $("#objetivo").append(temperatura); })   
       
 
