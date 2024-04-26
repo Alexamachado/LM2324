@@ -1,1 +1,35 @@
-https://github.com/toddmotto/public-apis
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <button> Convertir a dolares </button>
+   <input type="text" id="dolares" placeholder="Introduce dolares aqui"> 
+   <p id="objetivo"> </p>
+
+ <script>
+$(document).ready(function () {
+    $("button").click(function (){
+    let dolares= parseFloat /*Para combertir a numeros*/ ($("#dolares").val()); // Obtengo los dolares
+    let url = " https://v6.exchangerate-api.com/v6/28168c5293e0fea3ef0c580c/latest/USD";
+    $.get(url).done(function(datos) {
+        let factor_conversion = parseFloat(datos.conversion_rates.EUR);
+        let euros = dolares * factor_conversion
+        $("#objetivo").text("La cantidad de euros es : " + euros)
+    }).fail(function (){
+        $("#objetivo").text("Ha ocurrido un error en la llamada a la API")
+     })
+    })
+    });
+ </script>
+</body>
+</html>
+
+
+
+<!--Version linux (mini): jquery no tiene ajax-->
+<!--https:github.com/toddmotto/public-apis-->

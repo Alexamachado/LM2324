@@ -17,7 +17,7 @@
         /* Completar el código jQuery aquí */
 
         $.get("https://ipapi.co/192.168.1.1/json/").done(function(ip){
-      $.get("https://ipapi.co/192.2168.1.1/country/").done(function(pais){ 
+      $.get("https://ipapi.co/192.168.1.1/country/").done(function(pais){ 
         var direccion = "tu direccion ip y pais es: " + pais + " " + ip.ip
         $("#objetivo").append(direccion); })  })
       
