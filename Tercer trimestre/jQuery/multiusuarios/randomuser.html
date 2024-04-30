@@ -82,48 +82,31 @@
             })
     
         $("#btn-varios").click(function() {
-                $.get("https://randomuser.me/api/?results=5").done(function (all){
-                    console.log(all)
+                $.get("https://randomuser.me/api/?results=5&nat=Es").done(function (all){
+         
+
+                $("p").each(function (i) {
                 let foto = "multiple.png"
-
-                let nombre_entero = all.results[0].name.first + " " + all.results[0].name.last
-                let nombre_entero1 = all.results[1].name.first + " " + all.results[1].name.last
-                let nombre_entero2 = all.results[2].name.first + " " + all.results[2].name.last
-                let nombre_entero3 = all.results[3].name.first + " " + all.results[3].name.last
-                let nombre_entero4 = all.results[4].name.first + " " + all.results[4].name.last 
+                    
+                let nombre_entero = all.results[i].name.first + " " + all.results[i].name.last
                 
-                let nombre_usuario = all.results[0].login.username
-                let nombre_usuario1 = all.results[1].login.username
-                let nombre_usuario2= all.results[2].login.username
-                let nombre_usuario3 = all.results[3].login.username
-                let nombre_usuario4 = all.results[4].login.username
-
-                let email_usuario = all.results[0].email
-                let email_usuario1 = all.results[1].email
-                let email_usuario2 = all.results[2].email
-                let email_usuario3 = all.results[3].email
-                let email_usuario4 = all.results[4].email
-
-                let ciudad = all.results[0].location.city
-                let ciudad1 = all.results[1].location.city
-                let ciudad2 = all.results[2].location.city
-                let ciudad3 = all.results[3].location.city
-                let ciudad4 = all.results[4].location.city
-
+                let nombre_usuario = all.results[i].login.username
+                
+                let email_usuario = all.results[i].email
+                
+                let ciudad = all.results[i].location.city
+                
                 $("img").attr("src", foto)
-                $(".fullname").append(nombre_entero, nombre_entero1, nombre_entero2, nombre_entero3, nombre_entero4)
-                $(".username").append(nombre_usuario, nombre_usuario1, nombre_usuario2, nombre_usuario3, nombre_usuario4)
-                $(".email").append(email_usuario,email_usuario1, email_usuario2,email_usuario3,email_usuario4)
-                $(".city").append(ciudad, ciudad1,ciudad2, ciudad3, ciudad4 )
+                $(".fullname").append(nombre_entero)
+                $(".username").append(nombre_usuario)
+                $(".email").append(email_usuario)
+                $(".city").append(ciudad)
                 })
             })
                        
         });
+    })
     </script>
 </body>
-
 </html>
 
-var lista = document.getElementById("lista");
-            var elemento = document.createElement("li");  // elemento, crea el elemento li
-            elemento.textContent = "Elemento " + (lista.children.length + 1);
