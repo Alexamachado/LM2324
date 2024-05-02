@@ -83,19 +83,17 @@
     
         $("#btn-varios").click(function() {
                 $.get("https://randomuser.me/api/?results=5&nat=Es").done(function (all){
-         
-
-                $("p").each(function (i) {
-                let foto = "multiple.png"
-                    
-                let nombre_entero = all.results[i].name.first + " " + all.results[i].name.last
+                    $(".fullname").empty()
+                $(".username").empty()
+                $(".email").empty()
+                $(".city").empty()
                 
-                let nombre_usuario = all.results[i].login.username
-                
-                let email_usuario = all.results[i].email
-                
-                let ciudad = all.results[i].location.city
-                
+             $("p").each(function (i) {
+                let foto = "multiple.png"  
+                let nombre_entero = all.results[i].name.first + " " + all.results[i].name.last;
+                let nombre_usuario = all.results[i].login.username;
+                let email_usuario = all.results[i].email;
+                let ciudad = all.results[i].location.city;
                 $("img").attr("src", foto)
                 $(".fullname").append(nombre_entero)
                 $(".username").append(nombre_usuario)
