@@ -71,33 +71,53 @@ número de descargas. -->
             <label for="botones">Acción:</label>
             <button id="btn-libro">Consultar por ID libro</button>
             <button id="btn-todos">Ver catalogo</button>
-            <div id="resultados">
-                <!-- Aqui cargaremos los resultados-->
-            </div>
+            <div id="resultados"> </div>
         </div>
     </div>
     <script>
         
         $(document).ready(function () {
             $("#btn-libro").click(function(){
+                $("#resultados").empty();
                 let codlibro = $("#codLibro").val()
                 if(codlibro!=""){
                     //El usuario habria escrito algo
                     $.get("https://gutendex.com/books/"+codlibro).done(function(respuesta){
                         console.log(respuesta)
                         $("#resultados").append("<p>"+respuesta.title+"</p>");
+                        if(respuesta.authors){
+                            $("#resultados").append("<p> No se conoce al autor</p>");
+                        }
+                        else{
                         $("#resultados").append("<p>"+respuesta.authors[0].name+"</p>");
-                        $("#resultados").append("<image src='"+respuesta.formats['image/jpeg']+"''>");
+                    }
+                        $("#resultados").append("<image src='"+respuesta.formats['image/jpeg']+"'>");
+                        $("#resultados").append("<a href='"+respuesta.formats['text/html']+"'>");
+                        $("#resultados").append("<p>"+respuesta.download_count+"</p>");
                     })
                     .fail(function(){
-
+                        $("#resultados").text("Ha habido un error, vuelva a recargar la pagina o intentelo mas tarde")
                     })
                 }
             });
-            $("#btn-todos").click(function(){
-
-            })
         });
+            $("#btn-todos").click(function(){
+                $("#resultados").empty();
+                    for (var i= 1; i < "https://gutendex.com/books/".length; i++){
+                    $.get("https://gutendex.com/books/"+i).done(function(respuesta){    
+                        $("#resultados").append("<p>"+respuesta.title+"</p>");
+                        if(respuesta.authors){
+                            $("#resultados").append("<p> No se conoce al autor</p>");
+                        }
+                        else{
+                        $("#resultados").append("<p>"+respuesta.authors[0].name+"</p>");
+                    }
+                        $("#resultados").append("<image src='"+respuesta.formats['image/jpeg']+"'>");
+                        $("#resultados").append("<a href='"+respuesta.formats['text/html']+"'>");
+                        $("#resultados").append("<p>"+respuesta.download_count+"</p>");
+            })      
+        }
+    });
     </script>
 </body>
 </html>

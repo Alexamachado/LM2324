@@ -14,7 +14,7 @@ tampoco podemos reservar en fechas pasadas.-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reserva de habitaciones</title>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://code.jquery.com/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
@@ -68,15 +68,30 @@ tampoco podemos reservar en fechas pasadas.-->
             <button id="calculo">Cálculo</button>
             <p id="totalDias">Total días: </p>
             <p id="totalPrecio">Precio: </p>
+            <h3 id="hola"></h3>
         </form>
      </div>
     <script>
         $(document).ready(function(){
-            $("#totalDias").click(function(){
-            let entrada = parseFloat($("#f_entrada").val())
-            let salida = parseFloat($("#f_salida").val())
-            })
+            $("#f_entrada").datepicker({minDate: "+0D", maxDate: "+1Y"})
+            $("#f_salida").datepicker()
 
+            $("#calculo").click(function(){
+         /*   let entrada =  $("#f_entrada")
+            let salida = $("#f_salida")
+            var mili_secs = entrada - salida
+             // Convert the milli seconds to Days  
+             var days = milli_secs / (1000 * 3600 * 24);
+            document.getElementById("hola").innerHTML = 
+            Math.round(Math.abs(days));*/
+          
+
+            let individual = parseFloat($("#num_individuales").val())
+            let doble = parseFloat($("#num_dobles").val())
+            let triple =  parseFloat($("#num_triples").val())
+            let suma = individual * 25 + doble * 45 + triple * 80
+            $("#hola").html(suma)
+            })
         })
     </script>
 </body>
