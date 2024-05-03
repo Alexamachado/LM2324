@@ -1,0 +1,64 @@
+<!-- 8. Crea una barra de descarga (progreso) a partir del widget Progressbar.  -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressbar</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <style>
+        .ui-progressbar {
+          position: relative;
+          width: 50%;
+        }
+        .progress-label {
+          position: absolute;
+          left: 50%;
+          top: 4px;
+          font-weight: bold;
+          text-shadow: 1px 1px 0 #fff;
+          width: 50%;
+        }
+        </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <script>
+        $( function() {
+          var progressbar = $( "#progressbar" ),
+            progressLabel = $( ".progress-label" );
+       
+          progressbar.progressbar({
+            value: false,
+            change: function() {
+              progressLabel.text( progressbar.progressbar( "value" ) + "%" );
+            },
+            complete: function() {
+              progressLabel.text( "Completado!" );
+            }
+          });
+       
+          function progress() {
+            var val = progressbar.progressbar( "value" ) || 0;
+       
+            progressbar.progressbar( "value", val + 2 );
+       
+            if ( val < 99 ) {
+              setTimeout( progress, 40 );
+            }
+          }
+       
+          setTimeout( progress, 5000 );
+        } );
+        </script>
+</head>
+<body>
+    <h1>Ejemplo de barra de progreso</h1>
+    
+    <div id="progressbar"> <div class="progress-label"> Cargando...</div></div>
+    </div>
+
+
+</body>
+</html>

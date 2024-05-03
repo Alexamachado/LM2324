@@ -1,0 +1,78 @@
+<!-- 9. Utilizando tooltips desarrolla un formulario de registro donde se solicite nombre,
+apellidos, dni, correo electrónico y contraseña. Los tooltips deben indicar lo que
+escribir para cada campo. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <style>
+        label {
+          display: inline-block; width: 5em;
+        }
+        fieldset div {
+          margin-bottom: 2em;
+        }
+        fieldset .help {
+          display: inline-block;
+        }
+        .ui-tooltip {
+          width: 210px;
+        }
+        </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <script>
+        $( function() {
+          var tooltips = $( "[title]" ).tooltip({
+            position: {
+              my: "left top",
+              at: "right+5 top-5",
+              collision: "none"
+            }
+          });
+          $( "<button>" )
+            .text( "Ayuda!" )
+            .button()
+            .on( "click", function() {
+              tooltips.tooltip( "open" );
+            })
+            .insertAfter( "form" );
+        } );
+        </script>
+</head>
+<body>
+    <h1>Ejemplo de tooltips</h1>
+    <form>
+        <fieldset>
+          <div>
+            <label for="firstname">Nombre</label>
+            <input id="firstname" name="firstname" title="Please provide your firstname.">
+          </div>
+          <div>
+            <label for="lastname">Apellidos</label>
+            <input id="lastname" name="lastname" title="Please provide also your lastname.">
+          </div>
+          <div>
+            <label for="dni">DNI</label>
+            <input id="dni" name="dni" title="12345678X">
+          </div>
+          <div>
+          <label for="email">Email</label>
+            <input id="email" name="email" title="Inserta tu correo">
+          </div>
+          <div>
+          <label for="password">Contraseña</label>
+            <input id="password" name="password" title="Inserta contraseña">
+          </div>
+        </fieldset>
+      </form>
+       
+
+        
+</body>
+</html>

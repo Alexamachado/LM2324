@@ -1,6 +1,103 @@
-<!--2.  Utilizando la API de https://gutendex.com/ y las funciones AJAX que considere de
+<!-- 2. Utilizando la API de https://gutendex.com/ y las funciones AJAX que considere de
 jQuery cree una web que permita obtener un listado con todos los libros o dado un
 valor numérico positivo introducido en la caja de texto mostrar los detalles. En
 ambos casos, sea el botón “Ver catálogo” o el de “Consultar por ID libro” el sitio
 web visualizará: título, autor, imagen del libro, enlace de descarga en formato txt y
-número de descargas. (4 Ptos.) -->
+número de descargas. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alexandria">
+    <title>Visualizador libros</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <style>
+        body {
+            font-family: 'Alexandria', sans-serif;
+        }
+        h1{
+            font-size: xx-large;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .contenedor {
+            display: flex;
+            flex-wrap:wrap;
+            flex-direction: column;
+           
+        }
+        .formulario {
+            width: 80%;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            margin: 50px auto;
+            background-color: rgb(133, 181, 197);
+            border-radius: 10px;
+            padding: 50px;
+            box-shadow: 10px 10px 10px #7c7e8b;
+            overflow:auto;
+        }
+        .formulario > * {
+            margin: 10px;
+            padding: 10px;
+        }
+        input, label {
+            font-size: 1.5em;
+        }
+        button {
+            background-color:#091661;
+            font-size: x-large;
+            height: 60px;
+            width: 25%;
+            border-radius: 20px;
+            color: white;
+            margin-left: 2%;
+            margin-top: 1%;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="formulario">
+            <h1>Gutendex API</h1>
+            <label for="codlibro">Código Libro:</label>
+            <input type="number" name="codLibro" id="codLibro" min="1">
+            <br>
+            <label for="botones">Acción:</label>
+            <button id="btn-libro">Consultar por ID libro</button>
+            <button id="btn-todos">Ver catalogo</button>
+            <div id="resultados">
+                <!-- Aqui cargaremos los resultados-->
+            </div>
+        </div>
+    </div>
+    <script>
+        
+        $(document).ready(function () {
+            $("#btn-libro").click(function(){
+                let codlibro = $("#codLibro").val()
+                if(codlibro!=""){
+                    //El usuario habria escrito algo
+                    $.get("https://gutendex.com/books/"+codlibro).done(function(respuesta){
+                        console.log(respuesta)
+                        $("#resultados").append("<p>"+respuesta.title+"</p>");
+                        $("#resultados").append("<p>"+respuesta.authors[0].name+"</p>");
+                        $("#resultados").append("<image src='"+respuesta.formats['image/jpeg']+"''>");
+                    })
+                    .fail(function(){
+
+                    })
+                }
+            });
+            $("#btn-todos").click(function(){
+
+            })
+        });
+    </script>
+</body>
+</html>

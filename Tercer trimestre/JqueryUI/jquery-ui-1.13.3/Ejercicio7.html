@@ -1,0 +1,60 @@
+<!-- 7. Crea un datepicker con restricciones de fecha: por ejemplo, solamente podemos
+seleccionar un día de una semana a partir de mañana. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <script>
+    function deshabilitarmiercoles(date) {
+        return [date.getDay() !==3];
+    }
+    function deshabilitarmartesyjueves(date) {
+        return [date.getDay() !==2  && date.getDay() !== 4]; //Domingo es 0
+    }
+</script>
+    <script>
+        $.datepicker.regional['es'] = {
+        closeText: 'Cerrar',
+        prevText: '< Ant',
+        nextText: 'Sig >',
+        currentText: 'Hoy',
+        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+        monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+        dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+        dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+        dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+        weekHeader: 'Sm',
+        dateFormat: 'dd/mm/yy',
+        firstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: '',
+        beforeShowDay: deshabilitarmartesyjueves,
+        minDate: "+1D", maxDate: "+1W +1D" 
+        };
+        $.datepicker.setDefaults($.datepicker.regional['es']);
+       $(function () {
+       $("#datepicker").datepicker();
+       });
+       </script>       
+</head>
+<body>
+    <h1>Ejemplo de Datepicker en español</h1>
+    <input type="text" id="datepicker" >
+   
+</body>
+</html>
+
+<!-- 
+ $(function () {
+       $("#datepicker").datepicker(minDate: +1D);   A partir del dia de mañana
+       });
+
+ -->
