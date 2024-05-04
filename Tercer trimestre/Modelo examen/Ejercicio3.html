@@ -73,26 +73,29 @@ tampoco podemos reservar en fechas pasadas.-->
      </div>
     <script>
         $(document).ready(function(){
-            $("#f_entrada").datepicker({minDate: "+0D", maxDate: "+1Y"})
-            $("#f_salida").datepicker()
 
+            $("#f_entrada").datepicker({minDate: "+1D", maxDate: "+1Y"})
+            $("#f_salida").datepicker({minDate: "+1D", maxDate: "+1Y"})
+            
             $("#calculo").click(function(){
-         /*   let entrada =  $("#f_entrada")
+            let entrada =  $("#f_entrada")
             let salida = $("#f_salida")
-            var mili_secs = entrada - salida
+            entrada1 = new Date(entrada)
+            salida1 = new Date(salida)
+            var mili_secs = salida.getTime() - entrada.getTime()
              // Convert the milli seconds to Days  
-             var days = milli_secs / (1000 * 3600 * 24);
-            document.getElementById("hola").innerHTML = 
-            Math.round(Math.abs(days));*/
+             var days = Math.round(mili_secs / (1000 * 3600 * 24));
+            $("#totalDias").html(days);
           
-
+        
             let individual = parseFloat($("#num_individuales").val())
             let doble = parseFloat($("#num_dobles").val())
             let triple =  parseFloat($("#num_triples").val())
             let suma = individual * 25 + doble * 45 + triple * 80
-            $("#hola").html(suma)
+            $("#totalPrecio").html(suma)
             })
         })
+
     </script>
 </body>
 </html>
