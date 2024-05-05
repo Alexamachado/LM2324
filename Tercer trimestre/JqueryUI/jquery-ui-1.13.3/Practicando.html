@@ -1,0 +1,54 @@
+<!--8. Para ilustrar el funcionamiento del método attr de jQuery crea una web con un par de
+botones “Obtener scr de la imagen”, “Obtener html del encabezado”, “Obtener
+html de un párrafo” que al hacer clic sobre ellos permita visualizar mediante un alert
+de JavaScript los valores correspondientes.-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practicando</title>
+</head>
+<body>
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practicas</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+</head>
+<body>
+   <script>
+    $(document).ready(function (){
+        $("#dialogo").dialog({
+            autoOpen: false,
+            show:{
+                effect: "blind",
+                duration: 500
+            },
+            hide: {
+                effect: "explode",
+                duration: 100 
+            }
+        })
+        $("#boton").click(function (){
+            $("#dialogo").dialog("open")
+        })
+        
+    })
+   </script>
+
+    <div id="dialogo">
+        <div> Encabezado</div>
+        <p> asdsadsadflgksdnhguihsadugfisaesdigsdhniygsbhdngo9sdhg0sdhognsduoghsd</p>
+    </div>
+
+    <button id="boton"> Abrir </button> 
+</body>
+</html>
