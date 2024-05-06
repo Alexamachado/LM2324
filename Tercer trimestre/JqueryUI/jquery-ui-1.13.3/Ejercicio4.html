@@ -13,7 +13,7 @@ pulsada por el usuario se realice una acción u otra. -->
     <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
     <script>
     $(function (){
-        $("#dialog-confirm").dialog({
+        $("#dialogo").dialog({
            resizable: false,
            height: "auto",
            width:400,
@@ -24,7 +24,7 @@ pulsada por el usuario se realice una acción u otra. -->
                     $("p").hide();
                     $(this).dialog("close");
                 },
-                Cancel: function (){
+                "Cancelar": function (){
                     $(this).dialog("close");
                 }
             }
@@ -35,7 +35,7 @@ pulsada por el usuario se realice una acción u otra. -->
 </head>
 <body>
     <h1>Ejemplo de dialogo modal</h1>
-    <div id="dialog-confirm" title="¿Quiere borrar todo el ordenador?">
+    <div id="dialogo" title="¿Quiere borrar todo el ordenador?">
         <p><span class="ui-con ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>Tu ordenador se va a borrar de acuerdo?</p>
        <p>Esto esta oculto de manera predeterminada hasta que hagamos clic en el boton de abrir dialogo</p>
     </div>
