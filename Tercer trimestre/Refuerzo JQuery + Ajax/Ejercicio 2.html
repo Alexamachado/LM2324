@@ -1,0 +1,27 @@
+<!--2. Mostrar fotos aleatorias utilizando la API Unsplash:
+    ○ Regístrate en https://unsplash.com/developers y obtén tu API key.
+    ○ Utiliza la siguiente URL para obtener una foto aleatoria:-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        $(document).ready(function(){
+            $.get("https://api.unsplash.com/photos/random?client_id=uaDAUyprx-AARNRDcqIaOhGTNnSKiO-x2U0Qj7f71j8").done(function(api){
+                $("#foto").append("<image src='" + api.urls['small'] + "'>")
+            })
+        })
+        //$("#resultados").append("<image src='"+respuesta.formats['image/jpeg']+"'>");
+    </script>
+    <div id="foto"></div>
+</body>
+
+
+</html>

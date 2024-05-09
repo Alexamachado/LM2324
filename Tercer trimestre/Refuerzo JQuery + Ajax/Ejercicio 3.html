@@ -1,0 +1,24 @@
+<!--3. Buscar y mostrar información de películas utilizando la API OMDB:
+    ○ Regístrate en http://www.omdbapi.com/ y obtén tu API key.
+    ○ Utiliza la siguiente URL para buscar películas por título:-->
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <script>
+            $(document).ready(function(){
+                $.get("http://www.omdbapi.com/?apikey=33634933&t=Blade+Runner").done(function(pelicula){
+                    $("#foto").append("<img src='" + pelicula +"'>")
+                })
+            })
+        </script>
+        <div id="foto"></div>
+
+    </body>
+    </html>
