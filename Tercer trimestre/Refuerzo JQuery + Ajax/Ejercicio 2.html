@@ -1,6 +1,7 @@
 <!--2. Mostrar fotos aleatorias utilizando la API Unsplash:
     ○ Regístrate en https://unsplash.com/developers y obtén tu API key.
-    ○ Utiliza la siguiente URL para obtener una foto aleatoria:-->
+    ○ Utiliza la siguiente URL para obtener una foto aleatoria:
+      https://api.unsplash.com/photos/random?client_id={tu_api_key}-->
 
 <!DOCTYPE html>
 <html lang="es">
@@ -16,6 +17,7 @@
         $(document).ready(function(){
             $.get("https://api.unsplash.com/photos/random?client_id=uaDAUyprx-AARNRDcqIaOhGTNnSKiO-x2U0Qj7f71j8").done(function(api){
                 $("#foto").append("<image src='" + api.urls['small'] + "'>")
+                    console.log(api)
             })
         })
         //$("#resultados").append("<image src='"+respuesta.formats['image/jpeg']+"'>");

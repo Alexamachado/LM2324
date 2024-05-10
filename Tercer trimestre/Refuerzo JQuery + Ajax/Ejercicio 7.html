@@ -1,0 +1,47 @@
+<!--7. Mostrar imágenes de la API de Giphy:
+    ○ Regístrate en https://developers.giphy.com/ y obtén tu API key.
+    ○ Utiliza la siguiente URL para buscar imágenes GIF por texto:
+      https://api.giphy.com/v1/gifs/search?api_key={tu_api_key}&q={texto} -->
+
+      <!DOCTYPE html>
+      <html lang="es">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Ejercicio 7 refuerzo</title>
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+      </head>
+      <body>
+          <style>
+      
+          </style>
+      
+          <script>
+               $(document).ready(function () {
+                  $("#buscar").click(function(){
+                  let gif = $("#texto").val()
+                  $.get("https://api.giphy.com/v1/gifs/search?api_key=qlhEmaHS7V5nIbZQgHZ1t5pPkKF5p2Gk&q="+ gif).done(function(api){
+                     console.log(api)
+                     let gifs=api.data.length;
+                  for (let i=0; i<gifs; i++){
+                      $("#respuesta").append(
+                      "<br>" +    
+                      '<p>'+'<img width="120" src="'+api.data[0].embed_url +'"></p>'  +
+                      "<p> Autor: "+ api +"</p>" +
+                      "<p> Fecha publicacion: "+ api +"</p>" +
+                      "<p> Editorial: "+ api +"</p>" +
+                      "<p> Categoria: "+ api +"</p>" +
+                      "<p> Descripcion: "+ api +"</p>" 
+                      )}
+                  })
+              })
+              });
+          </script>
+      
+      <input type="text" id="texto" placeholder="Introduzca nombre gif">
+      <button id="buscar"> Buscar</button>
+      <div id="#resultado"> </div>
+      </body>
+      </html>
+  

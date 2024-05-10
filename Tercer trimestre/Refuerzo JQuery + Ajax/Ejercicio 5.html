@@ -1,0 +1,57 @@
+<!--5. Buscar y mostrar libros utilizando la API de Google Books:
+    ○ Regístrate en https://developers.google.com/books/docs/v1/using#APIKey y obtén tu API key.
+    ○ Utiliza la siguiente URL para buscar libros por título:
+    https://www.googleapis.com/books/v1/volumes?q=intitle:{titulo}&key={tu_api_key}-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5 Refuerzo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    <style>
+             p{
+            margin-left: 20px;
+            margin-top: 0px
+        }
+             #texto{
+            margin-left: 20px;
+            margin-top: 20px
+        }
+    </style>
+
+
+    <script>
+        $(document).ready(function () {
+            $("#busca").click(function(){
+            let volumen = $("#texto").val()
+            $.get(" https://www.googleapis.com/books/v1/volumes?q=intitle:" + volumen +"&key=AIzaSyAfj8KF0dzE2ba4_SivK5HHppb2qwI8Reo").done(function(api){
+               console.log(api)
+               let num_libros=api.items.length;
+                
+            for (let i=0; i<num_libros; i++){
+                $("#respuesta").append(
+                "<br>" +    
+                "<p> Titulo: "+ api.items[i].volumeInfo.title +"</p>" +
+                "<p> Autor: "+ api.items[i].volumeInfo.authors +"</p>" +
+                "<p> Fecha publicacion: "+ api.items[i].volumeInfo.publishedDate +"</p>" +
+                "<p> Editorial: "+ api.items[i].volumeInfo.publisher +"</p>" +
+                "<p> Categoria: "+ api.items[i].volumeInfo.categories +"</p>" +
+                "<p> Descripcion: "+ api.items[i].volumeInfo.description +"</p>" 
+                )}
+            })
+        })
+        });
+    </script>
+    <input type="text" placeholder="Introduza el volumen" id="texto">
+    <button id="busca">Buscar volumen</button> 
+    <div id="respuesta"></div>
+
+</body>
+</html>
+
+

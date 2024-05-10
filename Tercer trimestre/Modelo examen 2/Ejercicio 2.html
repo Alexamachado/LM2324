@@ -88,13 +88,47 @@ emergente al usuario con la frase “Error cargando datos del servidor”.-->
             <button id="btn-producto">Obtener producto</button>
             <button id="btn-todos">Ver todos</button>
             <div id="resultados">
-                <!-- Aqui cargaremos los resultados-->
+              
             </div>
         </div>
     </div>
     <script>
-        
+        $(document).ready(function(){
+            $("#btn-producto").click(function(){
+                $("#resultados").empty()
+               let codigo = $("#codProducto").val()
+               $.get("https://fakestoreapi.com/products/" + codigo).done(function(api){
+                console.log(api)
+                $("#resultados").append(
+                    "<p>" + api.id + "</p>" +
+                    "<p>" + api.title + "</p>" +
+                    "<p>" + api.price + "</p>" +
+                    "<p>" + api.description + "</p>" +
+                    "<p>" + api.category + "</p>" +
+                    "<img height=300 src='" + api.image +  "'>" +
+                    "<p>" + api.rating.rate + "</p>" +
+                    "<p>" + api.rating.count + "</p>" 
+                )
+               })
+            })
+            $("#btn-todos").click(function(){
+                $("#resultados").empty()
+                let cuenta = api.id
+            $.get("https://fakestoreapi.com/products/" + cuenta).done(function(api){
+            for(var i=1;i<api.id.length;i++){
+            $("#resultados").append(
+                "<p>" + api.id.i + "</p>" +
+                    "<p>" + api.title + "</p>" +
+                    "<p>" + api.price + "</p>" +
+                    "<p>" + api.description + "</p>" +
+                    "<p>" + api.category + "</p>" +
+                    "<img height=300 src='" + api.image +  "'>" +
+                    "<p>" + api.rating.rate + "</p>" +
+                    "<p>" + api.rating.count + "</p>"
+            )}
+        })
+        })
+    })
     </script>
 </body>
-
 </html>

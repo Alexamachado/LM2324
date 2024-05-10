@@ -1,0 +1,53 @@
+<!-- 6. Mostrar fotos de la API de Flickr:
+    ○ Regístrate en https://www.flickr.com/services/apps/create/apply/ y
+    obtén tu API key.
+    ○ Utiliza la siguiente URL para buscar fotos por texto:
+    https://www.flickr.com/services/rest/?method=flickr.photos.search&ap
+    i_key={tu_api_key}&text={texto}&format=json&nojsoncallback=1 -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6 refuerzo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    <style>
+
+    </style>
+
+    <script>
+         $(document).ready(function () {
+            $("#buscar").click(function(){
+            let imagen = $("#texto").val()
+            $.get("https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=7520d551992ebd7b421f67c034800276&text="+ imagen +"&format=json&nojsoncallback=1").done(function(api){
+               console.log(api)
+               let fotos=api.photos.photo.length;
+            for (let i=0; i<fotos; i++){
+                $("#respuesta").append(
+                "<br>" +    
+                "<p> Titulo: "+ api.photos.photo[i] +"</p>" +
+                "<p> Autor: "+ api +"</p>" +
+                "<p> Fecha publicacion: "+ api +"</p>" +
+                "<p> Editorial: "+ api +"</p>" +
+                "<p> Categoria: "+ api +"</p>" +
+                "<p> Descripcion: "+ api +"</p>" 
+                )}
+            })
+        })
+        });
+    </script>
+
+<input type="text" id="texto" placeholder="Introduzca nombre imagen">
+<button id="buscar"> Buscar</button>
+<div id="#resultado"> </div>
+</body>
+</html>
+
+
+
+
+ 
