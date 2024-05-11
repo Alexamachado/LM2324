@@ -97,7 +97,7 @@ emergente al usuario con la frase “Error cargando datos del servidor”.-->
             $("#btn-producto").click(function(){
                 $("#resultados").empty()
                let codigo = $("#codProducto").val()
-               $.get("https://fakestoreapi.com/products/" + codigo).done(function(api){
+               $.get("https://fakestoreapi.com/products/"+codigo).done(function(api){
                 console.log(api)
                 $("#resultados").append(
                     "<p>" + api.id + "</p>" +
@@ -109,25 +109,29 @@ emergente al usuario con la frase “Error cargando datos del servidor”.-->
                     "<p>" + api.rating.rate + "</p>" +
                     "<p>" + api.rating.count + "</p>" 
                 )
-               })
+            }).fail(function (){
+        $("#resultados").text("Ha ocurrido un error en la llamada a la API")
+     })
             })
             $("#btn-todos").click(function(){
                 $("#resultados").empty()
-                let cuenta = api.id
-            $.get("https://fakestoreapi.com/products/" + cuenta).done(function(api){
-            for(var i=1;i<api.id.length;i++){
+            $.get("https://fakestoreapi.com/products").done(function(api){
+                console.log(api)
+           for(var i=0;i<api.length;i++){
             $("#resultados").append(
-                "<p>" + api.id.i + "</p>" +
-                    "<p>" + api.title + "</p>" +
-                    "<p>" + api.price + "</p>" +
-                    "<p>" + api.description + "</p>" +
-                    "<p>" + api.category + "</p>" +
-                    "<img height=300 src='" + api.image +  "'>" +
-                    "<p>" + api.rating.rate + "</p>" +
-                    "<p>" + api.rating.count + "</p>"
+                "<p>" + api[i].id + "</p>" +
+                    "<p>" + api[i].title + "</p>" +
+                    "<p>" + api[i].price + "</p>" +
+                    "<p>" + api[i].description + "</p>" +
+                    "<p>" + api[i].category + "</p>" +
+                    "<img height=300 src='" + api[i].image +   "'>" +
+                    "<p>" + api[i].rating.rate + "</p>" +
+                    "<p>" + api[i].rating.count + "</p>"
             )}
-        })
-        })
+        }).fail(function (){
+        $("#resultados").text("Ha ocurrido un error en la llamada a la API")
+     })
+    })
     })
     </script>
 </body>

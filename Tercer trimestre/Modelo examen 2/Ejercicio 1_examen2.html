@@ -1,0 +1,91 @@
+<!-- 1. Crea un formulario con las siguientes características:
+       ●  Debe permitir introducir datos obligatorios como nombre, apellidos(apellido1 y apellido2), dni, email y contraseña(se repite). Además, dispondrá de unos
+          campos opcionales denominados descripción y fecha de nacimiento. El usuario debe marcar una casilla de verificación donde acepta el tratamiento
+          de datos personales por parte de nuestro sitio web antes de enviar los datos.
+       ●  Los campos obligatorios no deben estar vacíos. De existir alguno en este estado al lado al pulsar el botón “Enviar” debe aparecer el texto “El campo
+          XXXX es necesario para completar el formulario”.
+       ●  El campo email debe validarse utilizando Javascript.
+       ●  El campo DNI debe comprobar si es válido y en caso contrario mostrar un mensaje indicando el error.
+       ●  Los campos contraseña tienen que tener una longitud mínima de 8 caracteres y coincidir; en caso contrario, mostraremos un mensaje indicando la incidencia.
+       ●  El nombre de usuario debe generarse al validar los datos del usuario y mostrarse en pantalla. Este campo, calculado, consistirá en la letra inicial
+          del campo nombre, tres primeras letras del campo apellido1, tres primeras letras del campo apellido2 y los tres últimos dígitos del campo dni. Tenga en
+          cuenta que aparecerá en minúsculas y sin espacios en blanco. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Formulario</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+      <style>
+         body{
+            margin-top: 15px;
+            margin-left: 15px;
+            }
+         .error{
+            color: #f10000;
+         }
+         </style>
+</head>
+<body>
+   <span> Introduzca su Nombre:</span>  <input type="text" id="Nombre"> <span class="error" id="errornombre"></span><br>
+   <span> Introduzca su primer Apellido:</span>  <input type="text" id="Apellido1"> <span class="error" id="errorapellido1"></span><br>
+   <span> Introduzca su segundo Apellido:</span>  <input type="text" id="Apellido2"> <span class="error" id="errorapellido2"></span><br>
+   <span> Introduzca su DNI:</span>  <input type="text" id="dni"> <span class="error" id="errordni"></span><br>
+   <span> Introduzca su email:</span>  <input type="email" id="email"> <span class="error" id="erroremail"></span><br> 
+   <span> Introduzca su contraseña:</span>  <input type="password" id="contrasena1"> <span class="error" id="errorcontrasena1"></span><br>
+   <span> Confirme su contraseña:</span>  <input type="password" id="contrasena2"> <span class="error" id="errorcontrasena2"></span><br> <br>
+  
+   <textarea maxlength="50" id="descripcion" cols="49" rows="6" placeholder="Añada una descripcion sobre si mismo."></textarea> <br>
+   <span> Introduzca su fecha de nacimiento (opcional):</span>  <input type="" id="fecha"> <br> <br>
+   <input type="checkbox" id="politicas"> <span> Acepta el tratamiento de datos personales por parte del sitio web. </div> 
+   <span class="error" id="mustpoliticas"> </span> <br> <br>
+   <button id="boton"> Enviar</button> <span id="nombreusuario"></span>
+   <p id="usuario"></p>
+
+   <script>
+      $(document).ready(function(){
+        $("#boton").click(function(){
+         $("#errornombre, #errorapellido1, #errorapellido2, #errordni, #erroremail, #errorcontrasena1, #errorcontrasena2, #mustpoliticas").empty()
+         let patronEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+         let nombre=$("#Nombre").val()
+         let apellido1=$("#Apellido1").val()
+         let apellido2=$("#Apellido2").val()
+         let dni = $("#dni").val()
+         let email = $("#email").val()
+         let contrasena1=$("#contrasena1").val()
+         let contrasena2=$("#contrasena2").val()
+         let politicas =$("#politicas").is(":checked")
+            if(!patronEmail.test(email)){$("#erroremail").html("El email introducido no es valido")}         
+            if(contrasena1.length<8){ $("#errorcontrasena1").text("La longitud minima es de 8 caracteres")}
+            if(contrasena1 != contrasena2  && contrasena1.length==8){ $("#errorcontrasena2").text("Las contraseñas no coinciden")}
+               let letra =['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'];
+               let cadenaSinEspacios = dni.replace(" ", "");   
+               let cadenaLimpia = cadenaSinEspacios.toUpperCase();
+               var numero = parseInt(dni.substring(0,8));
+               var letraUsuario = dni [8]; 
+               var letraReal = letra[numero%23];  
+            if (letraUsuario!=letraReal){$("#errordni").text("El DNI introducido no es valido")}
+
+            if(nombre== ""){$("#errornombre").html("El campo nombre es necesario para completar el formulario")}
+            if(contrasena1== ""){$("#errorcontrasena1").html("El campo Contraseña es necesario para completar el formulario")}
+            if(apellido1== ""){$("#errorapellido1").html("El campo primer apellido es necesario para completar el formulario")}
+            if(apellido1== ""){$("#errorapellido2").html("El campo segundo apellido es necesario para completar el formulario")}
+            if(dni== ""){$("#errordni").html("El campo DNI es necesario para completar el formulario")}
+            if(email== ""){$("#erroremail").html("El campo email es necesario para completar el formulario")}
+            if(!politicas){$("#mustpoliticas").html(" Es necesario aceptar las politicas de pagina web")}
+        /*let nom = $(nombre).slice(0, 1)
+         let ape1 = $(apellido1).slipt(0, 3)
+         console.log(ape1)
+         let ape2 = $("#Apellido2").slice(0,3)
+         let dn = $("#Apellido1").slice(6,3)
+         $("#usuario").html(nom+ape1+ape2+dn)*/
+         })
+      })
+   </script>
+         
+
+</body>
+</html>

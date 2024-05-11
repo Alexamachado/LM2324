@@ -1,13 +1,10 @@
 <!-- 3. Completa un ejemplo de reserva de pistas de pádel donde existan distintas pistas
 para jugar, franjas horarias con diferentes precios y la posibilidad de incluir o no el
-uso de focos o no en la reserva(luz). El formulario permitirá mediante Jquery UI y
-DatePicker seleccionar un solo día (podremos reservar una pista únicamente a
-partir del día siguiente y como máximo con una semana de antelación), una
-pista, franja horaria y si necesitamos luz o no para la pista. El código debe mostrar
-un mensaje con los datos de la reserva al pulsar el botón de “Reserva”: día, pista y
-total de precio.
-Se valorará: Uso de métodos propios de JQuery como val(), html() y la
-localización en español del calendario. -->
+uso de focos o no en la reserva(luz). 
+El formulario permitirá mediante Jquery UI y DatePicker seleccionar un solo día (podremos reservar una pista únicamente a
+partir del día siguiente y como máximo con una semana de antelación), una pista, franja horaria y si necesitamos luz o no para la pista. 
+El código debe mostrar un mensaje con los datos de la reserva al pulsar el botón de “Reserva”: día, pista y total de precio.
+Se valorará: Uso de métodos propios de JQuery como val(), html() y la localización en español del calendario. -->
 
 <!DOCTYPE html>
 <html lang="es">
@@ -104,7 +101,58 @@ localización en español del calendario. -->
         </form>
      </div>
     <script>
-        
+         $.datepicker.regional['es'] = {
+                closeText: 'Cerrar',
+                prevText: '<Ant',
+                nextText: 'Sig>',
+                currentText: 'Hoy',
+                monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+                dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+                dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+                weekHeader: 'Sm',
+                dateFormat: "DD dd 'de' MM",
+                firstDay: 1,
+                isRTL: false,
+                minDate: "+1D", maxDate: "+1W +1D",
+                showMonthAfterYear: false,
+                yearSuffix: ''
+        };
+        $.datepicker.setDefaults($.datepicker.regional['es']);
+
+        $(document).ready(function(){
+        $("#fecha").datepicker()
+
+        $("#reserva").click(function(e){
+            $("#totalPrecio").empty()
+            $("#diaReserva").empty()
+            e.preventDefault();
+        let dia = $("#fecha").val()
+        let pista = $("#pista").val()
+        if(dia == ""){
+            $("#diaReserva").html("Debe de elegir un dia para reservar")
+            $("#totalPrecio").empty()
+        }
+        else{
+        $("#diaReserva").html(" Ha reservado el dia " + dia + ", en la pista nº " + pista  ) //Tambien funciona igual con append o text
+        let hora = $("#hora").val()
+        let masluz = 0
+        let phora
+        if(hora > 0 && hora <= 4){phora = 10}
+        else if(hora = 5 && hora <= 6){phora = 12}
+        else {phora = 16}
+        if($("#luz").is(":checked")){
+            let Total = phora + 4
+            $("#totalPrecio").text("Precio "+ Total + " €")
+        }
+       else{
+        let Total = phora
+        $("#totalPrecio").append("Precio "+ Total + " €")
+       }
+    }  
+            })
+        })
     </script>
 </body>
 </html>

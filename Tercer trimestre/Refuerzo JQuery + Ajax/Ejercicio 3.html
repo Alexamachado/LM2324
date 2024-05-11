@@ -12,16 +12,44 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     </head>
     <body>
+        <style>
+            #texto{
+            margin-left: 20px;
+            margin-top: 20px
+            }
+            p{
+            margin-left: 20px;
+            margin-top: 0px
+            }
+            img{
+            margin-left: 20px;
+            margin-top: 0px
+            }
+      </style>
         <script>
             $(document).ready(function(){
-                $.get("http://www.omdbapi.com/?apikey=33634933&t=Blade+Runner").done(function(pelicula){
-                    $("#foto").append("<img src='" + pelicula +"'>")
+                $("#busca").click(function(){
+            let peli = $("#texto").val()
+                $.get("https://www.omdbapi.com/?apikey=33634933&t=" + peli).done(function(pelicula){
+                    console.log(pelicula)
+                    $("#foto").append(
+                        "<br>" +    
+                "<p> Titulo: "+ pelicula.Title +"</p>" +
+                "<p> Director: "+ pelicula.Director +"</p>" +
+                "<p> Fecha publicacion: "+ pelicula.Released +"</p>" +
+                "<p> Genero: "+ pelicula.Genre +"</p>" +
+                "<p> Actore: "+ pelicula.Actors +"</p>" +
+                "<p> Trama: "+ pelicula.Plot +"</p>"+ 
+                '<img width="120" src="'+ pelicula.poster +'">'
+                    )
                 })
             })
+        })
         </script>
+            <input type="text" placeholder="Introduza la pelicula" id="texto">
+            <button id="busca">Buscar pelicula</button> 
         <div id="foto"></div>
 
     </body>
     </html>
     
-    FALTA

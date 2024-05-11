@@ -16,7 +16,10 @@
 </head>
 <body>
     <style>
-
+            #texto{
+            margin-left: 20px;
+            margin-top: 20px
+        }
     </style>
 
     <script>
@@ -27,14 +30,10 @@
                console.log(api)
                let fotos=api.photos.photo.length;
             for (let i=0; i<fotos; i++){
-                $("#respuesta").append(
+                $("#resultado").append(
                 "<br>" +    
-                "<p> Titulo: "+ api.photos.photo[i] +"</p>" +
-                "<p> Autor: "+ api +"</p>" +
-                "<p> Fecha publicacion: "+ api +"</p>" +
-                "<p> Editorial: "+ api +"</p>" +
-                "<p> Categoria: "+ api +"</p>" +
-                "<p> Descripcion: "+ api +"</p>" 
+                "<p> Titulo: "+ api.photos.photo[i].title +"</p>" +
+                "<p> id: "+ api.photos.photo[i].id +"</p>" 
                 )}
             })
         })
@@ -43,11 +42,10 @@
 
 <input type="text" id="texto" placeholder="Introduzca nombre imagen">
 <button id="buscar"> Buscar</button>
-<div id="#resultado"> </div>
+<div id="resultado"> </div>
 </body>
 </html>
 
 
 
 
- 

@@ -14,7 +14,10 @@
       </head>
       <body>
           <style>
-      
+                #texto{
+            margin-left: 20px;
+            margin-top: 20px
+        }
           </style>
       
           <script>
@@ -26,13 +29,9 @@
                      let gifs=api.data.length;
                   for (let i=0; i<gifs; i++){
                       $("#respuesta").append(
-                      "<br>" +    
-                      '<p>'+'<img width="120" src="'+api.data[0].embed_url +'"></p>'  +
-                      "<p> Autor: "+ api +"</p>" +
-                      "<p> Fecha publicacion: "+ api +"</p>" +
-                      "<p> Editorial: "+ api +"</p>" +
-                      "<p> Categoria: "+ api +"</p>" +
-                      "<p> Descripcion: "+ api +"</p>" 
+                        "<br>" +    
+                      '<img width="120" src="'+ api.data[i].embed_url +'">'
+                          
                       )}
                   })
               })
@@ -41,7 +40,6 @@
       
       <input type="text" id="texto" placeholder="Introduzca nombre gif">
       <button id="buscar"> Buscar</button>
-      <div id="#resultado"> </div>
+      <div id="respuesta"> </div>
       </body>
       </html>
-  
