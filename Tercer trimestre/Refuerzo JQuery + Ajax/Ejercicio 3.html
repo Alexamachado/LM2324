@@ -32,8 +32,8 @@
             let peli = $("#texto").val()
                 $.get("https://www.omdbapi.com/?apikey=33634933&t=" + peli).done(function(pelicula){
                     console.log(pelicula)
-                    $("#foto").append(
-                        "<br>" +    
+                $("#foto").append(
+                    "<br>" +    
                 "<p> Titulo: "+ pelicula.Title +"</p>" +
                 "<p> Director: "+ pelicula.Director +"</p>" +
                 "<p> Fecha publicacion: "+ pelicula.Released +"</p>" +

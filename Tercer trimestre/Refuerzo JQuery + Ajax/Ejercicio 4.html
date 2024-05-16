@@ -30,7 +30,6 @@
     <script>
         $(document).ready(function(){
            $("#busca").click(function(){
-            
             let nombre = $("#busqueda").val()
            $.get("https://api.github.com/users/" + nombre).done(function(api){
             $("#informacion").empty()

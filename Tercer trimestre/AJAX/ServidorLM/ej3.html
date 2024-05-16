@@ -18,12 +18,12 @@
     <script>
                     //Respuesta profesor
       $(function () {    
-        $.when($.get("1.json"),$.get("2.json")).then(function (resp1,resp2){
+        $.when($.get("1.json"),$.get("2.json")).then(function (resp1,resp2){  //Cuando cogas/se cumpla esto entonnces:
           let obj1 = resp1[0];
           let obj2 = resp2[0];
-    $("#objetivo").html(obj1.nombre + " " + obj1.apellidos + " tene el rol " + obj2.rol);
-   })
-   });
+          $("#objetivo").html(obj1.nombre + " " + obj1.apellidos + " tene el rol " + obj2.rol);
+        })
+      });
    
     // La sintaxis es $.when(solicitud1,solicitud2,..., solicitudN).then(function (r1, r2, ..., rN){...}).catch(function(error){....})
   /*  $.when($.get('1.json'), $.get('2.json')).then(function (r1, r2){

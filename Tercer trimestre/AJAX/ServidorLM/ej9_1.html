@@ -12,18 +12,18 @@
    <p id="objetivo"> </p>
 
  <script>
-$(document).ready(function () {
-    $("button").click(function (){
-    let dolares= parseFloat /*Para combertir a numeros*/ ($("#dolares").val()); // Obtengo los dolares
-    let url = " https://v6.exchangerate-api.com/v6/28168c5293e0fea3ef0c580c/latest/USD";
-    $.get(url).done(function(datos) {
-        let factor_conversion = parseFloat(datos.conversion_rates.EUR);
-        let euros = dolares * factor_conversion
-        $("#objetivo").text("La cantidad de euros es : " + euros)
-    }).fail(function (){
-        $("#objetivo").text("Ha ocurrido un error en la llamada a la API")
-     })
-    })
+    $(document).ready(function () {
+        $("button").click(function (){
+                let dolares= parseFloat /*Para combertir a numeros*/ ($("#dolares").val()); // Obtengo los dolares
+                let url = " https://v6.exchangerate-api.com/v6/28168c5293e0fea3ef0c580c/latest/USD";
+            $.get(url).done(function(datos) {
+                let factor_conversion = parseFloat(datos.conversion_rates.EUR);
+                let euros = dolares * factor_conversion
+                $("#objetivo").text("La cantidad de euros es : " + euros)
+            }).fail(function (){
+                $("#objetivo").text("Ha ocurrido un error en la llamada a la API")
+            })
+        })
     });
  </script>
 </body>

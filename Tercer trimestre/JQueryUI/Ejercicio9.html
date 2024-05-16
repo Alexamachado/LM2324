@@ -34,15 +34,16 @@ escribir para cada campo. -->
               at: "right+5 top-5",
               collision: "none"
             }
-          });
-          $( "<button>" )
+        });
+        $("#boton").click(function(){tooltips.tooltip("open")})
+         /* $( "<button>" )
             .text( "Ayuda!" )
             .button()
-            .on( "click", function() {
+            .click(function() {
               tooltips.tooltip( "open" );
             })
-            .insertAfter( "form" );
-        } );
+            .insertAfter( "form" );*/
+        });
         </script>
 </head>
 <body>
@@ -71,7 +72,7 @@ escribir para cada campo. -->
           </div>
         </fieldset>
       </form>
-       
+       <button id="boton">Ayuda!</button>
 
         
 </body>
