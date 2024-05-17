@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alexandria">
+    <title>Visualizador libros</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <style>
+        body {
+            font-family: 'Alexandria', sans-serif;
+        }
+        h1{
+            font-size: xx-large;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .contenedor {
+            display: flex;
+            flex-wrap:wrap;
+            flex-direction: column;
+           
+        }
+        .formulario {
+            width: 80%;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            margin: 50px auto;
+            background-color: rgb(133, 181, 197);
+            border-radius: 10px;
+            padding: 50px;
+            box-shadow: 10px 10px 10px #7c7e8b;
+            overflow:auto;
+        }
+        .formulario > * {
+            margin: 10px;
+            padding: 10px;
+        }
+        input, label {
+            font-size: 1.5em;
+        }
+        button {
+            background-color:#091661;
+            font-size: x-large;
+            height: 60px;
+            width: 25%;
+            border-radius: 20px;
+            color: white;
+            margin-left: 2%;
+            margin-top: 1%;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="formulario">
+            <h1>Gutendex API</h1>
+            <label for="codlibro">Código Libro:</label>
+            <input type="number" name="codLibro" id="codLibro" min="1"> <br>
+            <label for="botones">Acción:</label>
+            <button id="btn-libro">Consultar por ID libro</button>
+            <button id="btn-todos">Ver catalogo</button>
+            <div id="resultados">
+                <!-- Aqui cargaremos los resultados-->
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+           
+            $("#btn-libro").click(function(){
+                $("#resultados").empty()
+                let i = $("#codLibro").val()
+                if(i == ""){ $("#resultados").html("Debe de escribir el ID del libro")}
+                $.get("https://gutendex.com/books/" + i).done(function(api){
+                    console.log(api)
+                    for(n=0;n<api.authors.length;n++){
+                $("#resultados").append(
+                   "<div>" +api.title + "</div>" + "<br>"+
+                   "<div>" +api.authors[n].name + "</div>" + "<br>"+
+                   "<img src='" +api.formats["image/jpeg"] + "'>" + "<br>"+
+                   "<div> <a href='" +api.formats["text/html"] + "'> Pulse para descargarlo <a></div>" + "<br>"+
+                   "<div>" + api.download_count + "</div>" 
+                   )}
+            })
+        })
+                    $("#btn-todos").click(function(){
+                    $("#resultados").empty
+                    $.get("https://gutendex.com/books").done(function(api){
+                    console.log(api)
+                    for(let m=0;m<api.results.length;m++){
+                    for(let n=0;n<api.results[m].authors.length;n++){
+                $("#resultados").append(
+                   "<div>" +api.results[m].title + "</div>" + "<br>"+
+                   "<div>" +api.results[m].authors[n].name + "</div>" + "<br>"+
+                   "<img src='" +api.results[m].formats["image/jpeg"] + "'>" + "<br>"+
+                   "<div> <a href='" +api.results[m].formats["text/html"] + "'> Pulse para descargarlo <a></div>" + "<br>"+
+                   "<div>" + api.results[m].download_count + "</div>" 
+                   )}
+                    
+        }})
+        })
+    })
+    </script>
+</body>
+</html>

@@ -16,7 +16,10 @@
     <script>
         $(document).ready(function(){
             $.get("https://api.unsplash.com/photos/random?client_id=uaDAUyprx-AARNRDcqIaOhGTNnSKiO-x2U0Qj7f71j8").done(function(api){
-                $("#foto").append("<image src='" + api.urls['small'] + "'>")
+                $("#foto").append(
+                    "<image src='" + api.urls['small'] + "'>"
+                        
+                )
                     console.log(api)
             })
         })

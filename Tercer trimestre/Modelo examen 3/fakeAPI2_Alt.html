@@ -6,13 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+    <link rel="stylesheet" href="https://jqueryui.com   /resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+
+
     <title>Fake Store API</title>
     <style>
         body {
             font-family: 'Alexandria', sans-serif;
+            background-color: #648381;
         }
 
         h1 {
@@ -66,7 +69,10 @@
             background-color: #545662;
             opacity: 0.8;
         }
-    </style>
+        #contenedor{padding: 1rem; margin: 2rem; border: 1px solid black; border-radius: 14px; background-color: #E4FDE1;}
+        img{width: 20%;}
+        #resultados{display:grid; grid-template-columns: auto auto;}
+    </style>    
 </head>
 
 <body>
@@ -79,63 +85,60 @@
             <label for="botones">Acción:</label>
             <button id="btn-todos">Ver</button>
             <div id="resultados">
+                <!-- Aqui cargaremos los resultados-->
             </div>
         </div>
     </div>
-
     <script>
-        $(document).ready(function(){
-            let valor = $("#categoria").val()
-            let categorias =    [
-                "electronics",
-                "jewelery",
-                "men's clothing",
-                "women's clothing"
-                ]
-    
-                $.get("https://fakestoreapi.com/products/category/" + valor).done(function(api){
-                    
-                    $( "#categoria" ).autocomplete({
-                     source: categorias,
-                    // source: 'https://fakestoreapi.com/products/categories',
-                     minLength: 2,
-                     });
-    
-                    $("#btn-todos").click(function(){
-                        console.log(api)
-                        for( let n=0;n<api.length;n++){
-                      $("#resultados").append(
-                        "<img width=250 height= 300 src='" + api[n].image + "'>" + "<br>" + "<br>" +
-                        "<div>" + api[n].title + "</div>" + "<br>" +
-                        "<div>" + api[n].category + "</div>" + "<br>" +
-                        "<div>" + api[n].rating.rate + "</div>" + "<br>" +
-                        "<div>" + api[n].description + "</div>" + "<br>" +
-                        "<div>" + api[n].price + "</div>"
-                      )
+    $( function() {
+        var availableTags = [
+        "electronics",
+        "jewelery",
+        "men's clothing",
+        "women's clothing"
+        ];
+        $( "#categoria" ).autocomplete({
+        source: availableTags
+        });
+    });
+
+    $(document).ready(function(){
+        $("#btn-todos").click(function(){
+
+            $.ajax({
+
+                url:"https://fakestoreapi.com/products",
+                dataType:'json',
+
+                success:function(datos){
+                    console.log(datos);
+                    var categoria = $("#categoria").val();
+                    $("#resultados").empty();
+                    for(var i = 0; i < datos.length; i++){
+                        
+                        if(datos[i].category==categoria){
+                            
+                            var contenedor= $("<div id='contenedor'></div>");
+                            contenedor.append("<img src="+ datos[i].image +"></p>"+ "<br>")
+                            contenedor.append("<p>Titulo: " + datos[i].title + "</p><br>");
+                            contenedor.append("<p>Categoria: " + datos[i].category + "</p><br>");
+                            contenedor.append("<p>Puntuación: " + datos[i].rating.rate + "</p><br>");
+                            contenedor.append("<p>Descripción: " +   datos[i].description + "</p><br>");
+                            contenedor.append("<p>Precio: " + datos[i].price + " €");
+                            $("#resultados").append(contenedor);
                         }
-                })  
-            })
-            .fail(function(){
-                $("#resultados").text("se ha producido un error vuelve a intentarlo mas tarde")
-            })
-            })
-                    </script>
+                    }
+                },
+
+                error:function(){
+
+                    $("#resultados").text("Se ha producido un error al intentar conectarse con el servidor");
+                }
+
+            });
+        });
+    });
+    </script>
 </body>
 
 </html>
-
-
-$(function (){
-    function log( message ) {
-  $( "<div>" ).text( message ).prependTo( "#log" );
-  $( "#log" ).scrollTop( 0 );
-}
-
-$( "#birds" ).autocomplete({
-  source: "search.json",
-  minLength: 2,
-  select: function( event, ui ) {
-    log( "Selected: " + ui.item.value + " aka " + ui.item.id );
-  }
-});
-} );
