@@ -85,23 +85,16 @@
 
     <script>
         $(document).ready(function(){
-            let valor = $("#categoria").val()
-            let categorias =    [
-                "electronics",
-                "jewelery",
-                "men's clothing",
-                "women's clothing"
-                ]
-    
-                $.get("https://fakestoreapi.com/products/category/" + valor).done(function(api){
-                    
-                    $( "#categoria" ).autocomplete({
-                     source: categorias,
-                    // source: 'https://fakestoreapi.com/products/categories',
+            $( "#categoria" ).autocomplete({
+                    source: 'https://fakestoreapi.com/products/categories',
+                    dataType: "json",
                      minLength: 2,
                      });
     
                     $("#btn-todos").click(function(){
+                        $("#resultados").empty()
+                        let valor = $("#categoria").val()
+                        $.get("https://fakestoreapi.com/products/category/" + valor).done(function(api){
                         console.log(api)
                         for( let n=0;n<api.length;n++){
                       $("#resultados").append(
@@ -113,29 +106,12 @@
                         "<div>" + api[n].price + "</div>"
                       )
                         }
-                })  
+                }) .fail(function(){
+                $("#resultados").text("se ha producido un error vuelve a intentarlo mas tarde")  
             })
-            .fail(function(){
-                $("#resultados").text("se ha producido un error vuelve a intentarlo mas tarde")
+        
             })
             })
                     </script>
 </body>
-
 </html>
-
-
-$(function (){
-    function log( message ) {
-  $( "<div>" ).text( message ).prependTo( "#log" );
-  $( "#log" ).scrollTop( 0 );
-}
-
-$( "#birds" ).autocomplete({
-  source: "search.json",
-  minLength: 2,
-  select: function( event, ui ) {
-    log( "Selected: " + ui.item.value + " aka " + ui.item.id );
-  }
-});
-} );
