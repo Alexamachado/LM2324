@@ -21,11 +21,10 @@
 
         var aleatorio = Math.random(); 
         aleatorio = aleatorio * 5 + 1;
-        aleatorio = Math.trunc(aleatorio);
+        aleatorio = Math.trunc(aleatorio);  // remueve digitos fractionales
 
         function solucionar() {
             var comprobar = document.getElementById("palabra").value;
-
             var solucion = aleatorio;
 
             if (comprobar==palabras[solucion]) {

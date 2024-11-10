@@ -23,12 +23,10 @@ function borrar(){
     }
     document.getElementById("resultado").innerHTML = notas
     document.getElementById("media").innerHTML = notas
-
 }
 
 
 function media(){
-    
    let total = 0.0;
    for(var i=0; i<notas.length; i++) {
     total += notas[i];
