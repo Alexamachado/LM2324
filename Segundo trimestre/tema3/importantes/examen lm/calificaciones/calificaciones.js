@@ -2,20 +2,18 @@ var notas =  []
 
 function anadir(){
     var grades = parseFloat(document.getElementById("caja").value);
-    if (isNaN(grades)){
+    if (isNaN(grades)){         // is not a number
         document.getElementById("resultado").innerHTML = "No valido debe ser una cifra"
     }
     else{
-            if (grades > 10 || grades < 0){ 
-                document.getElementById("resultado").innerHTML = "No valido"
-            }
-            else{
-                notas[notas.length] = parseFloat(document.getElementById("caja").value)
-                document.getElementById("resultado").innerHTML = notas
+        if (grades > 10 || grades < 0){ 
+            document.getElementById("resultado").innerHTML = "No valido"
+        } else {
+            notas[notas.length] = parseFloat(document.getElementById("caja").value)
+            document.getElementById("resultado").innerHTML = notas
             }
         }        
 }
-
 
 function borrar(){
     for (i in notas+1){
@@ -25,11 +23,10 @@ function borrar(){
     document.getElementById("media").innerHTML = notas
 }
 
-
 function media(){
    let total = 0.0;
    for(var i=0; i<notas.length; i++) {
-    total += notas[i];
+    total += notas[i];  //Ciclo que añade cada nota que hemos puesto
    }
    total = total/notas.length;
    document.getElementById("media").innerHTML = total.toFixed(2);

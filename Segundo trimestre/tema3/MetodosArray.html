@@ -39,8 +39,7 @@ function pintarArray(){  //Nombre aleatorio que se le ha dado a la funcion
     else                                                           //Con [ ] se accede a las propiedades del objeto
         document.getElementById("colors").innerHTML += ", " + colores[i]; //añade una coma y el nuevo a partir de la ultima longitud en la que se creo
 }
-pintarArray(); //llama de nuevo a la funcion
-
+pintarArray(); //llama a la funcion (se ejecuta)
     function eliminar() {
         colores.pop();    //Elimina una de colores
         document.getElementById("colors").innerHTML = colores;  //sobreescribe el parrafo "colors" con la modificacion de colores que hemos hecho antes

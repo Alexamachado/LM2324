@@ -7,16 +7,10 @@ function add(){
 }
 
 function suma(){
-    
     var suma = 0;
     for (var i = 0; i < numbers.length; i++) {
         if ( numbers[i] % 2 === 0)
-        suma += parseFloat(numbers[i])
-
+        suma += parseFloat(numbers[i])    // No va
         document.getElementById("resultado").innerHTML = suma;
-
-
-
-
-}
-}
+    }
+}  

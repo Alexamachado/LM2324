@@ -68,16 +68,16 @@ function validacionpin() {
 
     if (pin1 == pin2) {
         document.getElementById("error_pines").innerHTML = "";
-        solucionpin = true;
+        return true;
     }
     else {
         document.getElementById("error_pines").innerHTML = "Los pines no coinciden";
-        solucionpin = false;
+        return false;
     }
 }
 
 function checkbox() {
-    var isChecked = document.getElementById('checkbox').checked;
+    var isChecked = document.getElementById('caja').checked;
 
     if(isChecked){
         document.getElementById("checkbox").innerHTML = "";

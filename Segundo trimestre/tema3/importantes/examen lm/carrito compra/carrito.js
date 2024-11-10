@@ -4,6 +4,7 @@ let carro = [
     {id:2, 'titulo':'ratón', 'precio':22.99, uds:0},
     {id:3, 'titulo':'gráfica', 'precio':1449.99, uds:0}
 ];
+
 let almacenado=null;
 function iniciar(){
     almacenado = localStorage.getItem("carro");
@@ -13,6 +14,7 @@ function iniciar(){
         refrescar();
     }
 }
+
 function anadir(producto){
      // En producto llevamos el identificador del producto a guardar en el carrito
      let objeto = carro[producto];
@@ -22,6 +24,7 @@ function anadir(producto){
      localStorage.setItem("carro", JSON.stringify(carro));
      refrescar();
 }
+
 function quitar(producto){
     // En producto llevamos el identificador del producto a guardar en el carrito
     let objeto = carro[producto];
@@ -35,6 +38,7 @@ function quitar(producto){
     }
 }
 // Actualiza visualización carrito y almacenamiento local
+
 function refrescar(){
     let listaCarrito = document.getElementById("carrito");
     let total=0;

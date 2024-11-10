@@ -3,7 +3,7 @@ var numeros = [];
 function anadir() {
     var n = parseFloat(document.getElementById("n").value);  // Parsefloat devuelve el primer numero, hace falta
     numeros.push(n);
-    document.getElementById("resultado").innerHTML = numeros
+    document.getElementById("resultado").innerHTML = numeros;
 }
 
 var s=0
