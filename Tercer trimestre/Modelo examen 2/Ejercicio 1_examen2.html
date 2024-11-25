@@ -58,10 +58,16 @@
          let contrasena1=$("#contrasena1").val()
          let contrasena2=$("#contrasena2").val()
          let politicas =$("#politicas").is(":checked")
-            if(!patronEmail.test(email)){$("#erroremail").html("El email introducido no es valido")}         
-            if(contrasena1.length<8){ $("#errorcontrasena1").text("La longitud minima es de 8 caracteres")}
-            if(contrasena1 != contrasena2  && contrasena1.length==8){ $("#errorcontrasena2").text("Las contraseñas no coinciden")}
-               let letra =['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'];
+
+            if(!patronEmail.test(email))
+            {$("#erroremail").html("El email introducido no es valido")}         
+            
+            if(contrasena1.length<8)
+            { $("#errorcontrasena1").text("La longitud minima es de 8 caracteres")}
+            if(contrasena1 != contrasena2  && contrasena1.length==8)
+            { $("#errorcontrasena2").text("Las contraseñas no coinciden")}
+            
+            let letra =['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'];
                let cadenaSinEspacios = dni.replace(" ", "");   
                let cadenaLimpia = cadenaSinEspacios.toUpperCase();
                var numero = parseInt(dni.substring(0,8));
