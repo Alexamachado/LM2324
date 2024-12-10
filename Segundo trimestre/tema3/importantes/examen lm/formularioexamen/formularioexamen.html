@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,6 +58,24 @@
 </form>
 
 <script>
+
+function isValidEmail(email) {
+    // Simple validación de formato de correo electrónico
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+function isValidDni(dni) {
+    // Validación de formato de DNI (8 caracteres alfanuméricos en mayúsculas)
+    var dniRegex = /^\d{8}[A-Z]$/;
+    return dniRegex.test(dni);
+}
+
+function isValidPhoneNumber(phoneNumber) {
+    // Validación de número de teléfono (solo se comprueba longitud)
+    return phoneNumber.length >= 9;
+}
+
 function validarFormulario() {
     var nombre = document.getElementById("nombre").value.trim();
     var apellidos = document.getElementById("apellidos").value.trim();
@@ -74,60 +92,71 @@ function validarFormulario() {
         errorMessages[i].innerHTML = "";
     }
 
+    var todoOK = true;
+
     // Validación de campos
     if (nombre === "") {
         document.getElementById("errorNombre").innerHTML = "Debes rellenar este campo";
+        todoOK = false;
     }
     if (apellidos === "") {
         document.getElementById("errorApellidos").innerHTML = "Debes rellenar este campo";
+        todoOK = false;
     }
     if (email === "") {
         document.getElementById("errorEmail").innerHTML = "Debes rellenar este campo";
+        todoOK = false;
     } else if (!isValidEmail(email)) {
         document.getElementById("errorEmail").innerHTML = "Correo electrónico no válido";
+        todoOK = false;
     }
     if (dni === "") {
         document.getElementById("errorDni").innerHTML = "Debes rellenar este campo";
+        todoOK = false;
     } else if (!isValidDni(dni)) {
         document.getElementById("errorDni").innerHTML = "DNI no válido";
+        todoOK = false;
     }
     if (password === "") {
         document.getElementById("errorPassword").innerHTML = "Debes rellenar este campo";
+        todoOK = false;
     }
     if (passwordRepeat === "") {
         document.getElementById("errorPasswordRepeat").innerHTML = "Debes rellenar este campo";
+        todoOK = false;
     } else if (password !== passwordRepeat) {
         document.getElementById("errorPasswordRepeat").innerHTML = "La contraseña no coincide";
+        todoOK = false;
     }
     if (telefono === "") {
         document.getElementById("errorTelefono").innerHTML = "Debes rellenar este campo";
+        todoOK = false;
     } else if (!isValidPhoneNumber(telefono)) {
         document.getElementById("errorTelefono").innerHTML = "Número de teléfono no válido";
+        todoOK = false;
     }
     if (!aceptarCondiciones) {
         document.getElementById("errorAceptarCondiciones").innerHTML = "Debes aceptar las condiciones de uso";
+        todoOK = false
     }
 
     // Retorna false si hay algún error en la validación
     return !document.querySelectorAll('.error').length;
+
+    if(todoOK){
+        let nombri = nombre.substring(0, 1);
+        let apelli = apellidos.substring(0, 3);
+        let temail= email.substring(0, 3);
+        let dn = dni.substring(6, 9);
+        let telef = telefono.substring(1, 4);
+        let todo = nombri + apelli + temail + dn + telef;
+        let todominuscula = todo.toLowerCase();
+        alert("El nombre de tu usuario es: " + todominuscula)
+    } 
+    
 }
 
-function isValidEmail(email) {
-    // Simple validación de formato de correo electrónico
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
 
-function isValidDni(dni) {
-    // Validación de formato de DNI (8 caracteres alfanuméricos en mayúsculas)
-    var dniRegex = /^[0-9A-Z]{8}$/;
-    return dniRegex.test(dni);
-}
-
-function isValidPhoneNumber(phoneNumber) {
-    // Validación de número de teléfono (solo se comprueba longitud)
-    return phoneNumber.length >= 9;
-}
 </script>
 
 </body>
